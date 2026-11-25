@@ -1,0 +1,20 @@
+{
+  "numero": "01",
+  "titre": "Créer un dossier personnel",
+  "scenes": [
+    {"id": "titre", "narration": "Créer un dossier personnel.", "caption": ""},
+    {"id": "intro", "narration": "Un dossier, c'est comme une chemise en carton : on y range ses documents. Prenez votre temps. Vous pouvez mettre la vidéo en pause à tout moment.", "caption": "Un dossier sert à ranger vos documents"},
+    {"id": "ouvrir", "narration": "Première étape : ouvrir l'Explorateur de fichiers. En bas de l'écran, cliquez une fois sur l'icône en forme de dossier jaune.", "caption": "1. Cliquez sur l'Explorateur de fichiers"},
+    {"id": "documents", "narration": "La fenêtre de l'Explorateur de fichiers s'ouvre. À gauche, cliquez sur Documents. C'est ici que nous allons ranger notre dossier.", "caption": "2. Cliquez sur « Documents »"},
+    {"id": "nouveau", "narration": "En haut à gauche de la fenêtre, cliquez sur le bouton Nouveau.", "caption": "3. Cliquez sur « Nouveau »"},
+    {"id": "dossier", "narration": "Un petit menu s'ouvre. Cliquez sur Dossier.", "caption": "4. Cliquez sur « Dossier »"},
+    {"id": "taper", "narration": "Un nouveau dossier apparaît. Son nom, Nouveau dossier, est surligné en bleu. Ne cliquez nulle part. Tapez directement le nom que vous voulez. Par exemple : Famille.", "caption": "5. Tapez le nom : Famille"},
+    {"id": "entree", "narration": "Puis appuyez sur la touche Entrée du clavier. Bravo ! Votre dossier Famille est créé.", "caption": "6. Appuyez sur la touche Entrée"},
+    {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": "Pause : essayez sur votre ordinateur"},
+    {"id": "clicdroit", "narration": "Il existe une autre méthode. Faites un clic droit dans un espace vide de la fenêtre. Pointez Nouveau, puis cliquez sur Dossier. Tapez le nom, par exemple Santé, puis appuyez sur Entrée.", "caption": "Autre méthode : clic droit › Nouveau › Dossier"},
+    {"id": "exercice", "narration": "À vous de jouer ! Dans Documents, créez un dossier qui s'appelle Recettes. Mettez la vidéo en pause, puis faites l'exercice.", "caption": "Exercice"},
+    {"id": "attente", "narration": "", "caption": ""},
+    {"id": "solution", "narration": "Voici la solution. Dans l'Explorateur de fichiers, cliquez sur Documents. Cliquez sur Nouveau, puis sur Dossier. Tapez Recettes, puis appuyez sur Entrée. Votre dossier Recettes est prêt.", "caption": "Solution"},
+    {"id": "resume", "narration": "Retenez bien : Nouveau, Dossier, je tape le nom, puis Entrée. À bientôt à Espace 19 !", "caption": ""}
+  ]
+}
