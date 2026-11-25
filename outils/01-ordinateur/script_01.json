@@ -1,0 +1,106 @@
+{
+ "numero": "01",
+ "titre": "Découvrir l'ordinateur : fixe et portable",
+ "scenes": [
+  {
+   "id": "titre",
+   "narration": "Découvrir l'ordinateur : fixe et portable.",
+   "caption": ""
+  },
+  {
+   "id": "intro",
+   "narration": "Il existe deux grandes familles d'ordinateurs : le fixe et le portable. Prenez votre temps. Vous pouvez mettre la vidéo en pause.",
+   "caption": "Deux familles d'ordinateurs"
+  },
+  {
+   "id": "fixe",
+   "narration": "Voici un ordinateur fixe : plusieurs objets séparés, reliés par des câbles.",
+   "caption": "1. L'ordinateur fixe"
+  },
+  {
+   "id": "uc",
+   "narration": "La grande boîte, c'est l'unité centrale : le cerveau de l'ordinateur. Son bouton sert à l'allumer.",
+   "caption": "L'unité centrale"
+  },
+  {
+   "id": "ecran",
+   "narration": "L'écran affiche les images, comme une télévision.",
+   "caption": "L'écran"
+  },
+  {
+   "id": "clavier",
+   "narration": "Le clavier sert à écrire des lettres et des chiffres.",
+   "caption": "Le clavier"
+  },
+  {
+   "id": "souris",
+   "narration": "La souris sert à montrer et à cliquer. Faites-la glisser à plat sur la table.",
+   "caption": "La souris"
+  },
+  {
+   "id": "toutenun",
+   "narration": "Il existe aussi l'ordinateur tout-en-un. L'unité centrale est cachée derrière l'écran.",
+   "caption": "Le tout-en-un"
+  },
+  {
+   "id": "portable",
+   "narration": "Voici un ordinateur portable. Il s'ouvre comme un livre. L'écran et le clavier sont réunis.",
+   "caption": "2. L'ordinateur portable"
+  },
+  {
+   "id": "pave",
+   "narration": "Sous le clavier, ce rectangle lisse est le pavé tactile. Il remplace la souris : faites glisser un doigt dessus.",
+   "caption": "Le pavé tactile"
+  },
+  {
+   "id": "batterie",
+   "narration": "Le portable a une batterie, comme un téléphone. Quand elle est presque vide, branchez le chargeur.",
+   "caption": "La batterie et le chargeur"
+  },
+  {
+   "id": "pause1",
+   "narration": "Mettez la vidéo en pause, et regardez votre ordinateur.",
+   "caption": "Pause : regardez votre ordinateur"
+  },
+  {
+   "id": "peripheriques",
+   "narration": "Tout ce que l'on branche à l'ordinateur s'appelle un périphérique : imprimante, haut-parleurs, casque ou clé USB.",
+   "caption": "3. Les périphériques"
+  },
+  {
+   "id": "prises",
+   "narration": "Derrière l'unité centrale, on branche le câble d'alimentation, qui va à la prise électrique, puis le câble de l'écran. Le clavier et la souris vont dans les prises USB.",
+   "caption": "4. Où brancher les câbles ?"
+  },
+  {
+   "id": "usb",
+   "narration": "La prise USB est petite et rectangulaire. Elle ne rentre que dans un sens. Si ça bloque, retournez-la. Ne forcez jamais.",
+   "caption": "La prise USB"
+  },
+  {
+   "id": "cotes",
+   "narration": "Sur le portable, les prises sont sur les côtés. Le chargeur a sa petite prise, ronde ou ovale.",
+   "caption": "Les prises du portable"
+  },
+  {
+   "id": "exercice",
+   "narration": "À vous de jouer ! Votre ordinateur est-il fixe ou portable ? Trouvez l'écran, le clavier, et la souris ou le pavé tactile. Mettez la vidéo en pause.",
+   "caption": "Exercice"
+  },
+  {
+   "id": "attente",
+   "narration": "",
+   "caption": ""
+  },
+  {
+   "id": "solution",
+   "narration": "Voici la solution. Si l'écran, le clavier et la souris sont séparés, c'est un ordinateur fixe. Si tout est réuni dans un seul objet, c'est un portable.",
+   "caption": "Solution"
+  },
+  {
+   "id": "resume",
+   "narration": "Retenez bien : écran, clavier, souris, unité centrale. Sur le portable, le pavé tactile remplace la souris. À bientôt à Espace 19 !",
+   "caption": ""
+  }
+ ]
+}
