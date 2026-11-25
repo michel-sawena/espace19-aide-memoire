@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 - Allumer et éteindre l'ordinateur · Espace 19 Numérique</title>
+<style>
+  :root { --jaune:#FFD400; --bleu:#0F2864; --win:#0067C0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", system-ui, Arial, sans-serif; background:#0d1f4d; color:#111; }
+  header { background:var(--bleu); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; border-bottom:6px solid var(--jaune); }
+  header h1 { margin:0; font-size:28px; }
+  header .num { background:var(--jaune); color:#000; font-weight:800; border-radius:10px; padding:4px 12px; font-size:22px; }
+  #consigne { background:#fff; margin:16px auto 10px; max-width:1100px; border:5px solid var(--jaune); border-radius:16px; padding:16px 22px; font-size:28px; font-weight:700; color:var(--bleu); min-height:84px; display:flex; align-items:center; gap:18px; }
+  #consigne .essais { margin-left:auto; font-size:20px; color:#444; font-weight:600; white-space:nowrap; }
+  #ecran { position:relative; margin:0 auto; transform-origin:top center; width:1100px; height:600px; border-radius:12px; overflow:hidden; background:linear-gradient(#ece4f0,#d9cfe0 78%,#c49668 78%); user-select:none; }
+  /* moniteur */
+  #moniteur { position:absolute; left:20px; top:14px; width:860px; height:500px; background:#1e2028; border-radius:14px; padding:14px; }
+  #dalle { position:relative; width:100%; height:100%; overflow:hidden; border-radius:4px; background:linear-gradient(#1d3c8a,#3a7bd5); }
+  #pied { position:absolute; left:405px; top:514px; width:50px; height:40px; background:#46484f; }
+  #socle { position:absolute; left:330px; top:548px; width:200px; height:14px; border-radius:6px; background:#3c3e46; }
+  /* unité centrale */
+  #tour { position:absolute; left:915px; top:120px; width:160px; height:350px; background:#34363f; border:3px solid #1e1f25; border-radius:12px; }
+  #tour .fente { position:absolute; left:16px; right:16px; height:6px; background:#43454e; border-radius:3px; }
+  #bouton { position:absolute; left:50px; top:40px; width:60px; height:60px; border-radius:50%; background:#50525c; border:4px solid #c8c8d2; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  #bouton.allume { box-shadow:0 0 0 5px #4fa0ff; }
+  #bouton svg { width:34px; height:34px; }
+  /* bureau Windows */
+  .barre { position:absolute; left:0; right:0; bottom:0; height:52px; background:#eef0f5; display:flex; justify-content:center; align-items:center; gap:22px; }
+  .barre .ic { width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:26px; }
+  .barre .ic:hover { background:#dfe4ee; }
+  .carreaux { display:grid; grid-template-columns:12px 12px; gap:3px; }
+  .carreaux i { width:12px; height:12px; background:#0078d7; display:block; }
+  #menu { position:absolute; left:120px; top:30px; width:590px; height:380px; background:#f3f4f8; border:2px solid #aab0c0; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.45); display:none; }
+  #menu .rech { margin:18px 28px; height:38px; border-radius:19px; background:#fff; border:2px solid #c3c8d2; }
+  #menu .grille { display:grid; grid-template-columns:repeat(6, 1fr); gap:22px 10px; padding:6px 36px; }
+  #menu .grille div { width:42px; height:42px; border-radius:8px; margin:0 auto; }
+  #menu .bas { position:absolute; left:0; right:0; bottom:0; height:62px; background:#e6e8ee; border-top:2px solid #d4d8e0; border-radius:0 0 12px 12px; display:flex; align-items:center; padding:0 26px; }
+  #menu .avatar { width:34px; height:34px; border-radius:50%; background:#a0aabe; }
+  #menu .nom { width:110px; height:12px; border-radius:6px; background:#c0c5d0; margin-left:12px; }
+  #marche { margin-left:auto; width:48px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:default; }
+  #marche:hover, #marche.ouvert { background:#d4dff0; }
+  #marche svg { width:26px; height:26px; }
+  #pm { position:absolute; left:440px; top:200px; width:260px; background:#fdfdfe; border:2px solid #aab0c0; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.3); padding:6px; display:none; z-index:6; }
+  #pm div { font-size:22px; padding:10px 14px; border-radius:6px; display:flex; align-items:center; gap:12px; }
+  #pm div.item:hover { background:#e1ebfa; }
+  #pm .vide span { display:block; width:130px; height:12px; background:#dfe2e8; border-radius:6px; }
+  #pm svg { width:22px; height:22px; flex:none; }
+  /* écrans noir / verrouillage */
+  #noir { position:absolute; inset:0; background:#000; display:none; align-items:center; justify-content:center; z-index:8; }
+  .points { width:54px; height:54px; border-radius:50%; border:6px solid rgba(255,255,255,.15); border-top-color:#fff; animation:tourne 1s linear infinite; display:none; }
+  @keyframes tourne { to { transform:rotate(360deg); } }
+  #verrou { position:absolute; inset:0; background:linear-gradient(#1d3c8a,#3a7bd5); color:#fff; text-align:center; display:none; z-index:7; }
+  #verrou .h { font-size:110px; font-weight:600; margin-top:70px; }
+  #verrou .d { font-size:30px; font-weight:600; }
+  /* surcouches communes (modèle 08) */
+  .cadre { position:absolute; border:9px solid var(--jaune); border-radius:12px; pointer-events:none; animation:clign .7s steps(1) infinite; z-index:20; display:none; }
+  @keyframes clign { 50% { border-color: transparent; } }
+  #curseur { position:absolute; width:40px; height:52px; z-index:30; display:none; pointer-events:none; transition:left 1.6s ease-in-out, top 1.6s ease-in-out; }
+  .onde { position:absolute; width:20px; height:20px; border:6px solid var(--jaune); border-radius:50%; z-index:29; pointer-events:none; animation:onde .7s ease-out forwards; }
+  @keyframes onde { to { transform:scale(4); opacity:0; } }
+  #bravo, #fin { position:absolute; inset:0; background:rgba(13,31,77,.82); display:none; align-items:center; justify-content:center; z-index:40; }
+  .carte { background:#fff; border:8px solid var(--jaune); border-radius:24px; padding:30px 44px; text-align:center; max-width:760px; }
+  .carte h3 { font-size:42px; margin:0 0 12px; color:var(--bleu); }
+  .carte p { font-size:24px; margin:8px 0 22px; }
+  .gros { font-size:26px; font-weight:700; padding:14px 28px; border-radius:14px; border:3px solid var(--bleu); background:var(--jaune); color:#000; margin:6px 10px; cursor:pointer; }
+  .gros.sec { background:#fff; }
+  #accueil { position:absolute; inset:0; background:rgba(13,31,77,.9); display:flex; align-items:center; justify-content:center; z-index:50; }
+  .note { max-width:1100px; margin:10px auto 30px; color:#cfd8ef; font-size:16px; }
+  .note a { color:#fff; }
+  @media (max-width:1150px) { #ecran { transform-origin:top left; } }
+</style>
+</head>
+<body>
+<header><span class="num">02</span><h1>Allumer et éteindre l'ordinateur</h1></header>
+<div id="consigne"><span id="txt">Bienvenue !</span><span class="essais" id="essais"></span></div>
+
+<div id="ecran">
+  <div id="moniteur"><div id="dalle">
+    <div class="barre">
+      <div class="ic" id="demarrer" title="Démarrer"><div class="carreaux"><i></i><i></i><i></i><i></i></div></div>
+      <div class="ic">🔍</div><div class="ic">📁</div><div class="ic">🌐</div>
+    </div>
+    <div id="menu">
+      <div class="rech"></div>
+      <div class="grille" id="grille"></div>
+      <div class="bas"><div class="avatar"></div><div class="nom"></div>
+        <div id="marche" title="Marche/Arrêt"><svg viewBox="0 0 24 24"><path d="M7 6.5a8 8 0 1 0 10 0" fill="none" stroke="#222" stroke-width="2.4" stroke-linecap="round"/><path d="M12 2.5v9" stroke="#222" stroke-width="2.4" stroke-linecap="round"/></svg></div></div>
+    </div>
+    <div id="pm">
+      <div class="vide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#888" stroke-width="2.4"/></svg><span></span></div>
+      <div class="item" id="arreter"><svg viewBox="0 0 24 24"><path d="M7 6.5a8 8 0 1 0 10 0" fill="none" stroke="#222" stroke-width="2.4" stroke-linecap="round"/><path d="M12 2.5v9" stroke="#222" stroke-width="2.4" stroke-linecap="round"/></svg>Arrêter</div>
+      <div class="item" id="redemarrer"><svg viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.1-5" fill="none" stroke="#222" stroke-width="2.4" stroke-linecap="round"/><path d="M18 2.5v5h-5" fill="none" stroke="#222" stroke-width="2.4" stroke-linecap="round"/></svg>Redémarrer</div>
+    </div>
+    <div id="verrou"><div class="h">10:30</div><div class="d">mercredi 25 novembre</div></div>
+    <div id="noir"><div class="points" id="points"></div></div>
+  </div></div>
+  <div id="pied"></div><div id="socle"></div>
+  <div id="tour"><div id="bouton" title="Bouton de mise en marche"><svg viewBox="0 0 24 24"><path d="M7 6.5a8 8 0 1 0 10 0" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M12 2.5v9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+    <div class="fente" style="top:130px"></div><div class="fente" style="top:150px"></div><div class="fente" style="top:170px"></div><div class="fente" style="top:190px"></div><div class="fente" style="top:210px"></div></div>
+
+  <div class="cadre" id="cadre"></div>
+  <svg id="curseur" viewBox="0 0 20 32"><path d="M1 1 L1 26 L7 20 L12 31 L16 29 L11 19 L19 19 Z" fill="#fff" stroke="#000" stroke-width="2"/></svg>
+
+  <div id="accueil"><div class="carte">
+    <h3>Allumer et éteindre l'ordinateur</h3>
+    <p>D'abord, regardez la démonstration.<br>Ensuite, c'est vous qui faites l'exercice.</p>
+    <button class="gros" id="b-demo">▶ Voir la démonstration</button>
+    <button class="gros sec" id="b-exo">Passer à l'exercice</button>
+  </div></div>
+  <div id="bravo"><div class="carte"><h3>Bravo !</h3><p id="bravo-txt">Vous avez éteint l'ordinateur proprement, puis vous l'avez rallumé.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+  <div id="fin"><div class="carte"><h3>Voici la solution</h3><p>Regardez bien, puis essayez à nouveau.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+</div>
+<p class="note">Exercice d'entraînement : tout se passe dans cette page, votre ordinateur ne s'éteint pas. Utilisez de préférence un ordinateur avec une souris.
+  · <a href="../">Tous les aide-mémoire</a></p>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const ecran = $('ecran'), cadre = $('cadre'), cur = $('curseur');
+  let S = 1, etat, mode = 'accueil', echecs = 0, minuteurs = [];
+  const COUL = ['#0078d7','#f5c542','#0a8cc8','#e45a3c','#4cb45a','#8c5ac8'];
+  for (let i = 0; i < 18; i++) { const d = document.createElement('div'); d.style.background = COUL[(i + Math.floor(i / 6) * 2) % 6]; $('grille').appendChild(d); }
+
+  // ---------- voix (synthèse vocale du navigateur, gratuite) ----------
+  function dire(t) {
+    $('txt').textContent = t;
+    try {
+      if (!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t.replace(/«|»/g, '').replace('Marche/Arrêt', 'Marche Arrêt'));
+      u.lang = 'fr-FR'; u.rate = 0.85;
+      const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith('fr'));
+      if (v) u.voice = v;
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  function plus_tard(ms, f) { minuteurs.push(setTimeout(f, ms)); }
+  function stop() { minuteurs.forEach(clearTimeout); minuteurs = []; }
+
+  // ---------- état : 'bureau' | 'menu' | 'pm' | 'arret' | 'eteint' | 'demarrage' | 'allume' ----------
+  function reset() { etat = 'bureau'; rendu(); }
+  function rendu() {
+    $('menu').style.display = (etat === 'menu' || etat === 'pm') ? 'block' : 'none';
+    $('pm').style.display = etat === 'pm' ? 'block' : 'none';
+    $('marche').classList.toggle('ouvert', etat === 'pm');
+    $('noir').style.display = ['arret', 'eteint', 'demarrage'].includes(etat) ? 'flex' : 'none';
+    $('points').style.display = (etat === 'arret' || etat === 'demarrage') ? 'block' : 'none';
+    $('verrou').style.display = etat === 'allume' ? 'block' : 'none';
+    $('bouton').classList.toggle('allume', etat !== 'eteint' && etat !== 'arret');
+  }
+  function pos(el) {
+    const a = el.getBoundingClientRect(), b = ecran.getBoundingClientRect();
+    return { x:(a.left - b.left)/S, y:(a.top - b.top)/S, w:a.width/S, h:a.height/S };
+  }
+  function montrer(el) {
+    if (!el) { cadre.style.display = 'none'; return; }
+    const p = pos(el);
+    Object.assign(cadre.style, { display:'block', left:(p.x-12)+'px', top:(p.y-12)+'px', width:(p.w+24)+'px', height:(p.h+24)+'px' });
+  }
+  function onde(el) {
+    const p = pos(el), o = document.createElement('div'); o.className = 'onde';
+    o.style.left = (p.x + p.w/2 - 10) + 'px'; o.style.top = (p.y + p.h/2 - 10) + 'px';
+    ecran.appendChild(o); setTimeout(() => o.remove(), 800);
+  }
+  function bouger(el) { const p = pos(el); cur.style.display = 'block'; cur.style.left = (p.x + p.w/2) + 'px'; cur.style.top = (p.y + p.h/2) + 'px'; }
+
+  // ---------- actions (communes à la démo et à l'exercice) ----------
+  function ouvrirMenu() { etat = 'menu'; rendu(); }
+  function ouvrirPm() { etat = 'pm'; rendu(); }
+  function arreter(suite) {
+    etat = 'arret'; rendu();
+    plus_tard(2500, () => { etat = 'eteint'; rendu(); if (suite) suite(); });
+  }
+  function allumer(suite) {
+    etat = 'demarrage'; rendu();
+    plus_tard(3000, () => { etat = 'allume'; rendu(); if (suite) suite(); });
+  }
+
+  // ---------- démonstration ----------
+  function demo() {
+    stop(); mode = 'demo'; $('accueil').style.display = 'none'; reset(); $('essais').textContent = 'Démonstration';
+    cur.style.transition = 'none'; cur.style.left = '600px'; cur.style.top = '250px'; cur.style.display = 'block';
+    setTimeout(() => cur.style.transition = '', 50);
+    let t = 300;
+    const pas = (txt, el, action, attente = 6500) => {
+      plus_tard(t, () => { dire(txt); montrer(el()); bouger(el()); });
+      plus_tard(t + 3200, () => { onde(el()); action(); montrer(null); });
+      t += attente;
+    };
+    pas("Pour éteindre, cliquez sur « Démarrer », les quatre carreaux bleus en bas de l'écran.", () => $('demarrer'), ouvrirMenu);
+    pas("En bas à droite du menu, cliquez sur « Marche/Arrêt ».", () => $('marche'), ouvrirPm);
+    pas("Cliquez sur « Arrêter ». Puis patientez jusqu'à l'écran tout noir.", () => $('arreter'), () => arreter(), 9000);
+    pas("Pour rallumer, appuyez une seule fois sur le bouton de l'ordinateur.", () => $('bouton'), () => allumer(), 8000);
+    plus_tard(t, () => { montrer(null); dire("L'heure et la date s'affichent : l'ordinateur est allumé. À vous maintenant !"); });
+    plus_tard(t + 5000, () => { cur.style.display = 'none'; exercice(); });
+  }
+
+  // ---------- exercice ----------
+  function exercice() {
+    stop(); mode = 'exo'; echecs = 0;
+    ['accueil', 'bravo', 'fin'].forEach(x => $(x).style.display = 'none');
+    cur.style.display = 'none'; montrer(null); reset(); majEssais();
+    dire("À vous ! Éteignez l'ordinateur en trois clics, en passant par l'écran.");
+  }
+  function majEssais() { $('essais').textContent = mode === 'exo' ? `Essais ratés : ${echecs} / 3` : ''; }
+  function echec(msg) {
+    echecs++; majEssais();
+    if (echecs >= 3) { solution(); return; }
+    dire(msg);
+  }
+  function solution() {
+    stop(); mode = 'demo'; reset(); $('essais').textContent = 'Solution';
+    dire("Voici la solution. Regardez bien.");
+    cur.style.display = 'block';
+    let t = 2500;
+    const pas = (el, action, attente = 3600) => { plus_tard(t, () => { montrer(el()); bouger(el()); }); plus_tard(t + 2200, () => { onde(el()); action(); montrer(null); }); t += attente; };
+    pas(() => $('demarrer'), ouvrirMenu);
+    pas(() => $('marche'), ouvrirPm);
+    pas(() => $('arreter'), () => { arreter(); dire("On clique sur Arrêter, puis on attend l'écran noir."); }, 6000);
+    pas(() => $('bouton'), () => { allumer(); dire("Pour rallumer : un appui bref sur le bouton."); }, 6000);
+    plus_tard(t, () => { cur.style.display = 'none'; $('fin').style.display = 'flex'; });
+  }
+
+  // ---------- clics de l'utilisateur ----------
+  $('demarrer').addEventListener('click', e => {
+    if (mode !== 'exo') return; e.stopPropagation();
+    if (etat === 'bureau') { ouvrirMenu(); dire("Bien ! Maintenant, cliquez sur « Marche/Arrêt », en bas à droite du menu."); }
+    else if (etat === 'menu' || etat === 'pm') { etat = 'bureau'; rendu(); dire("Le menu s'est fermé. Cliquez de nouveau sur « Démarrer »."); }
+  });
+  $('marche').addEventListener('click', e => {
+    if (mode !== 'exo') return; e.stopPropagation();
+    if (etat === 'menu') { ouvrirPm(); dire("Très bien ! Cliquez maintenant sur « Arrêter »."); }
+  });
+  $('arreter').addEventListener('click', e => {
+    if (mode !== 'exo' || etat !== 'pm') return; e.stopPropagation();
+    dire("Bravo ! Patientez : l'écran devient tout noir.");
+    arreter(() => { if (mode === 'exo') dire("L'ordinateur est éteint. Maintenant, rallumez-le avec le bouton de l'ordinateur."); });
+  });
+  $('redemarrer').addEventListener('click', e => {
+    if (mode !== 'exo' || etat !== 'pm') return; e.stopPropagation();
+    etat = 'menu'; rendu();
+    echec("« Redémarrer » rallume l'ordinateur tout de suite. Pour éteindre, il fallait choisir « Arrêter ». Cliquez de nouveau sur « Marche/Arrêt ».");
+  });
+  $('pm').addEventListener('click', e => e.stopPropagation());
+  $('bouton').addEventListener('click', () => {
+    if (mode !== 'exo') return;
+    if (etat === 'eteint') {
+      dire("Parfait, un seul appui. Patientez…");
+      allumer(() => { if (mode === 'exo') { dire("Bravo ! L'ordinateur est allumé."); $('bravo').style.display = 'flex'; } });
+    } else if (etat === 'arret' || etat === 'demarrage') {
+      dire("Patientez, sans appuyer de nouveau.");
+    } else {
+      echec("Pour éteindre, on n'appuie pas sur le bouton : on passe par l'écran. Cliquez sur « Démarrer ».");
+    }
+  });
+  $('dalle').addEventListener('click', e => {
+    if (mode !== 'exo') return;
+    if (etat === 'eteint') { echec("L'écran est éteint. Pour rallumer, appuyez sur le bouton de l'ordinateur, à droite."); return; }
+    if ((etat === 'menu' || etat === 'pm') && !e.target.closest('#menu')) { etat = 'bureau'; rendu(); dire("Le menu s'est fermé. Pas de panique : cliquez de nouveau sur « Démarrer »."); }
+  });
+
+  $('b-demo').onclick = demo;
+  $('b-exo').onclick = exercice;
+  document.querySelectorAll('[data-act]').forEach(b => b.onclick = () => {
+    if (b.dataset.act === 'recommencer') exercice();
+    else { stop(); $('bravo').style.display = 'none'; $('fin').style.display = 'none'; mode = 'fini'; montrer(null); cur.style.display = 'none'; dire("Leçon terminée. Bravo pour votre travail, et à bientôt à Espace 19 !"); $('essais').textContent = ''; }
+  });
+
+  // mise à l'échelle sur petits écrans
+  function echelle() { const s = S = Math.min(1, (window.innerWidth - 20) / 1100); ecran.style.transform = `scale(${s})`; ecran.style.marginBottom = (s < 1 ? -(600 * (1 - s)) : 0) + 'px'; }
+  window.addEventListener('resize', echelle); echelle();
+  reset(); dire("Bienvenue ! Cliquez sur « Voir la démonstration ».");
+})();
+</script>
+</body>
+</html>
