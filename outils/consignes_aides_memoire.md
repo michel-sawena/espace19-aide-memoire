@@ -1,7 +1,7 @@
 # Consignes de production – Aides-mémoire Espace 19 Numérique
 
 > À lire avant de produire **tout** aide-mémoire (fiche PDF, vidéo, page interactive).
-> Décidé par Michel Féviliyé le 25/11/2026.
+> Décidé par Michel Féviliyé le 25/11/2026 (mis à jour à 13h45 : 4 pages maximum, sans couverture, logo, textes plus petits, sous-titres vidéo).
 
 ---
 
@@ -18,23 +18,24 @@
 2. **Il sait refaire le cours facilement**, seul, sans aide.
 3. **Il a envie d'y revenir** : le support rassure, fait plaisir à regarder et donne de la fierté.
 
-Le nombre de pages n'est pas important, **sans excès**. Une fiche compte en général 6 à 10 pages A4. Mieux vaut une page de plus et de l'air qu'une page trop chargée.
+**4 pages A4 au maximum**, numérotées. Aucune page de couverture : un **titre mis en évidence en haut de la page 1**, puis de **petits titres** de section sur les autres pages.
 
 ## 3. Style visuel
 
 - Le support est **présentable, moderne, élégant, ludique, professionnel et stylisé**.
-- Il a une **identité constante** d'une fiche à l'autre : mêmes couleurs, même mise en page, même personnage-guide et mêmes repères.
+- **Logo d'Espace 19** obligatoire : en haut de la page 1, à côté du titre, et en petit dans chaque pied de page. Fichier : `logo_espace19.png` (fourni par Michel), à déposer dans le dossier Drive « Aide-Mémoire ».
+- Il a une **identité constante** d'une fiche à l'autre : mêmes couleurs, même mise en page et mêmes repères.
   - **Couleurs** :
-    - bleu nuit #14234B (titres) ;
-    - jaune soleil #FFC72C (mises en évidence) ;
-    - crème #FFF8E7 (fonds doux) ;
-    - corail #FF7A59 (attention) ;
-    - vert d'eau #2BB3A3 (réussite).
+    - violet Espace 19 #93117E (titres, bandeau, pied de page) et violet foncé #3A0A33 (texte) ;
+    - jaune soleil #FFC72C (uniquement l'endroit où cliquer et les numéros d'étape) ;
+    - fonds doux : violet très clair #F8EAF5, jaune clair #FFF6D6 ;
+    - corail #FF7A59 (« Pas de panique ») et vert d'eau #2BB3A3 (réussite).
   - **Police** sans empattement, très lisible (Inter, ou Open Sans à défaut).
-- **Grandes lettres** :
-  - texte courant 15 pt au minimum ;
-  - consignes d'étape 20 pt et plus ;
-  - titres 28 pt et plus.
+- **Tailles de texte, sans excès** :
+  - titre de la page 1 : environ 23 pt ;
+  - petits titres de section : environ 15 pt ;
+  - titres d'étape : environ 12,5 pt ;
+  - texte courant : 10,5 à 11,5 pt.
   - Contraste fort, jamais de texte gris clair.
 - **Une idée par bloc, une étape par carte.** Chaque étape a :
   - un gros numéro ;
@@ -52,29 +53,24 @@ Le nombre de pages n'est pas important, **sans excès**. Une fiche compte en gé
 - On compare avec des objets connus : un dossier est une chemise en carton, le bureau de l'ordinateur est une table de travail.
 - Pas de second degré ni d'anglicisme. On ne se moque jamais.
 
-## 5. Structure type d'une fiche PDF
+## 5. Structure type d'une fiche PDF (4 pages au maximum)
 
-1. **Couverture** :
-   - un titre « Je… » orienté réussite (ex. « Je crée mon premier dossier ») ;
-   - une illustration ;
-   - le numéro de l'aide-mémoire, la durée estimée et le niveau ;
-   - le logo texte d'Espace 19 Numérique.
-2. **Avant de commencer** :
-   - à quoi ça sert, avec une analogie de la vie courante ;
-   - ce dont on a besoin ;
-   - les gestes et les mots à connaître (petit lexique illustré).
-3. **Pas à pas** : une carte par étape, avec un gros numéro, une action et une image zoomée encadrée de jaune. Deux ou trois étapes par page au maximum.
-4. **Autre méthode** (s'il y en a une), présentée comme un bonus et non comme une obligation.
-5. **Pas de panique !** : les erreurs fréquentes et comment s'en sortir. Seulement des solutions vérifiées dans l'aide officielle.
-6. **À vous de jouer** (partie ludique) :
-   - un exercice guidé avec des cases à cocher « Je l'ai fait » ;
-   - un petit jeu ou quiz de 3 questions, avec les réponses en bas de page, à l'envers.
-7. **Mes notes** : au moins une page entière de lignes espacées (1 cm) pour que le participant écrive ses propres notes. Des petits encadrés « Mes notes » peuvent aussi suivre les étapes clés.
-8. **Je retiens** :
-   - une **carte mémo** à découper ou à garder près de l'ordinateur, en 4 à 5 mots-clés ;
-   - un badge de réussite « Bravo, vous savez … » ;
-   - les **2 QR codes** : un grand pour « Revoir la vidéo » (sous-dossier du sujet), un petit pour « Tous les aide-mémoire » (dossier Participants) ;
-   - le cas échéant, le lien vers la page interactive d'entraînement.
+- **Page 1** :
+  - en-tête : le logo d'Espace 19 et un bandeau violet avec le titre « Je… » (ex. « Je crée mon premier dossier »), suivi du numéro, du niveau et de la durée ;
+  - « À quoi ça sert ? » avec une analogie de la vie courante, et « Les gestes utiles » en pictogrammes (clic gauche, clic droit, touche…) ;
+  - une phrase rassurante ;
+  - les premières étapes du « Pas à pas ».
+- **Page 2** :
+  - la suite du « Pas à pas » : une carte par étape, avec un gros numéro, une phrase d'action, le geste et une **image zoomée** encadrée de jaune ;
+  - le **Bonus** (autre méthode, s'il y en a une) ;
+  - **Pas de panique** : les erreurs fréquentes et leurs solutions vérifiées.
+- **Page 3** :
+  - **À vous de jouer** : un exercice avec des cases à cocher, l'image du résultat attendu et un petit quiz de 3 questions, avec les réponses à l'envers ;
+  - **Je retiens** : une carte mémo à découper, en 4 ou 5 mots-clés ;
+  - le badge « Bravo ! » ;
+  - les **2 QR codes** : un grand pour « Revoir la vidéo » (sous-dossier du sujet), un petit pour « Tous les aide-mémoire » (dossier Participants) ;
+  - l'adresse de la page d'entraînement.
+- **Page 4** : **Mes notes**, une page entière de lignes pour écrire.
 
 ## 6. Vidéo et page interactive
 
@@ -83,7 +79,7 @@ Les mêmes règles s'appliquent (public, ton, couleurs, grandes lettres, rassura
 - **Vidéo** :
   - rythme lent avec des pauses pour refaire ;
   - mises en évidence très fortes (cadre jaune clignotant, flèche, loupe) ;
-  - sous-titre de l'étape en grand ;
+  - titre de l'étape en grand en haut, et **sous-titres** de tout le commentaire en bas de l'image (phrase par phrase, synchronisés avec la voix) ;
   - exercice et solution à la fin ;
   - 2 à 3 minutes.
 - **Page interactive** :
@@ -104,8 +100,10 @@ Les mêmes règles s'appliquent (public, ton, couleurs, grandes lettres, rassura
 - [ ] Une personne qui n'a jamais touché un ordinateur peut-elle refaire la démarche avec la fiche seule ?
 - [ ] Chaque étape a son numéro, son action et son image zoomée encadrée.
 - [ ] Aucun mot technique n'est laissé sans explication.
-- [ ] Texte courant de 15 pt ou plus, contraste fort, pages numérotées.
+- [ ] 4 pages au maximum, pas de couverture, logo d'Espace 19 présent, pages numérotées « X / 4 ».
+- [ ] Tailles de texte conformes (section 3), contraste fort.
 - [ ] Les 2 QR codes fonctionnent (dossier partagé en lecture seule par lien).
 - [ ] Une page « Mes notes » avec des lignes pour écrire.
-- [ ] La fiche donne envie : couverture soignée, partie ludique, badge de réussite.
+- [ ] La fiche donne envie : titre mis en valeur, partie ludique, badge de réussite.
+- [ ] La vidéo a ses sous-titres.
 - [ ] Les libellés sont vérifiés dans les sources (sources_NN.md).

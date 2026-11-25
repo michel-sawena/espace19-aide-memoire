@@ -238,18 +238,18 @@ def key_enter(d, t, pressed):
 
 def card(title, lines, sub=None, big_icon=None):
     im = bg(); d = ImageDraw.Draw(im)
-    d.rounded_rectangle([90, 70, W - 90, H - 70], 28, fill=(255, 255, 255))
-    d.rounded_rectangle([90, 70, W - 90, H - 70], 28, outline=YEL, width=8)
+    d.rounded_rectangle([90, 36, W - 90, H - 140], 28, fill=(255, 255, 255))
+    d.rounded_rectangle([90, 36, W - 90, H - 140], 28, outline=YEL, width=8)
     f = F(52, "b"); tw = d.textlength(title, font=f)
-    d.text((W / 2 - tw / 2, 120), title, font=f, fill=(15, 40, 100))
-    y = 220
+    d.text((W / 2 - tw / 2, 70), title, font=f, fill=(15, 40, 100))
+    y = 160
     for ln in lines:
         f2 = F(34, "s"); tw = d.textlength(ln, font=f2)
         d.text((W / 2 - tw / 2, y), ln, font=f2, fill=(30, 30, 30)); y += 58
     if big_icon == "pause":
-        d.rounded_rectangle([W/2-60, 420, W/2-20, 540], 8, fill=(15,40,100)); d.rounded_rectangle([W/2+20, 420, W/2+60, 540], 8, fill=(15,40,100))
+        d.rounded_rectangle([W/2-50, 330, W/2-16, 440], 8, fill=(15,40,100)); d.rounded_rectangle([W/2+16, 330, W/2+50, 440], 8, fill=(15,40,100))
     if sub:
-        f3 = F(24); tw = d.textlength(sub, font=f3); d.text((W / 2 - tw / 2, H - 130), sub, font=f3, fill=(90, 90, 90))
+        f3 = F(24); tw = d.textlength(sub, font=f3); d.text((W / 2 - tw / 2, H - 200), sub, font=f3, fill=(90, 90, 90))
     return im
 
 # ---------- scènes ----------
@@ -281,7 +281,7 @@ def frame(sid, t, D, cap, ctx):
     p = t / D
     if sid == "titre":
         im = card("Créer un dossier personnel", ["Aide-mémoire n° 01", "Formation débutant"], "Espace 19 Numérique")
-        d = ImageDraw.Draw(im); folder_icon(d, W / 2 - 70, 470, 1.55); return im
+        d = ImageDraw.Draw(im); folder_icon(d, W / 2 - 70, 330, 1.55); return im
     if sid == "intro":
         im = screen({"window": False}); d = ImageDraw.Draw(im)
         folder_icon(d, W / 2 - 150, 200, 3.3)
@@ -389,6 +389,37 @@ def frame(sid, t, D, cap, ctx):
         return card("À retenir", ["1. Nouveau", "2. Dossier", "3. Je tape le nom", "4. Entrée"], "À bientôt à Espace 19 Numérique !")
     raise KeyError(sid)
 
+import re as _re
+def _phrases(txt):
+    return [x.strip() for x in _re.split(r'(?<=[.!?])\s+', txt) if x.strip()]
+
+def subtitle(im, text):
+    if not text: return
+    d = ImageDraw.Draw(im); f = F(27, "s")
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        t = (cur + " " + w).strip()
+        if d.textlength(t, font=f) > W - 220: lines.append(cur); cur = w
+        else: cur = t
+    lines.append(cur)
+    lh = 36; h = lh * len(lines) + 18; y0 = H - TB_H - 14 - h
+    wmax = max(d.textlength(l, font=f) for l in lines)
+    d.rounded_rectangle([W/2 - wmax/2 - 18, y0, W/2 + wmax/2 + 18, y0 + h], 10, fill=(0, 0, 0))
+    for i, l in enumerate(lines):
+        tw = d.textlength(l, font=f)
+        d.text((W/2 - tw/2, y0 + 9 + i*lh), l, font=f, fill=(255, 255, 255))
+
+def sub_at(narr, t, D, start=0.4):
+    """Phrase affichée au temps t : réparties selon leur longueur sur la durée parlée."""
+    ph = _phrases(narr)
+    if not ph: return ""
+    tot = sum(len(x) for x in ph); parl = max(D - start - 1.0, 1.0); acc = start
+    for x in ph:
+        dd = parl * len(x) / tot
+        if t < acc + dd: return x if t >= start - 0.2 else ""
+        acc += dd
+    return ph[-1] if t < D - 0.3 else ""
+
 def main(script, durs, out):
     sc = json.load(open(script)); du = json.load(open(durs))
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
@@ -398,6 +429,7 @@ def main(script, durs, out):
         D = du[s["id"]]; n = int(round(D * FPS)); total += n
         for i in range(n):
             im = frame(s["id"], i / FPS, D, s["caption"], None)
+            subtitle(im, sub_at(s["narration"], i / FPS, D, s.get("_start", 0.4)))
             p.stdin.write(im.tobytes())
     p.stdin.close(); p.wait()
     print("frames", total, "duree", total / FPS)
