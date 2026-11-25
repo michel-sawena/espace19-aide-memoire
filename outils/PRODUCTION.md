@@ -25,8 +25,17 @@ Michel Féviliyé : bénévole, non-développeur, vouvoiement, français simple.
 - Page interactive : modèle `../08-creer-un-dossier/index.html` (démonstration, exercice vérifié, 3 échecs → solution animée, « Recommencer » / « Terminer la leçon »). Une page par sujet quand `plan_de_travail.md` l'indique ; ajouter le lien dans `../index.html`.
 - Installer si besoin : `pip install --break-system-packages playwright qrcode python-docx` ; `python3 -m playwright install chromium` si Chromium manque.
 
-## Production continue (depuis le 25/11/2026 15h, décision de Michel)
-Une séance par heure. Chaque séance traite UN sujet DE BOUT EN BOUT (séance A puis séance B ci-dessous, à la suite, sans attendre le lendemain), puis s'arrête. La séance suivante prend le sujet suivant. On continue jusqu'à ce que tout le plan soit publié.
+## Production enchaînée (depuis le 25/11/2026 15h10, décision de Michel)
+Pas d'horaire. La tâche planifiée « Aides-mémoire Espace 19 – production enchaînée » (identifiant `trig_01SjnFu5jQytBjjpburAnvgV`, sans horaire) traite UN sujet DE BOUT EN BOUT (séance A puis séance B ci-dessous, à la suite), libère le verrou, puis se relance elle-même avec `fire_trigger` sur ce même identifiant, pour le sujet suivant. On continue jusqu'à ce que tout le plan soit publié.
+
+### Règle d'arrêt (ne PAS se relancer si…)
+- tous les sujets sont « Publié » ;
+- ou le même sujet vient d'échouer 2 fois de suite (voir le journal du plan) : le noter « ⛔ bloqué » avec la raison ; le compte rendu quotidien le signalera à Michel ;
+- ou le solde Higgsfield est inférieur à 6 crédits ;
+- ou une autre séance tenait le verrou.
+
+### Comptes rendus
+Aucun mail par sujet. Chaque séance écrit son résultat dans le journal de `plan_de_travail.md` (date, heure, sujet, réussite avec preuves ou échec avec raison, crédits dépensés). Le mail quotidien (tâche « Aides-mémoire Espace 19 – compte rendu du jour », 18h43) en fait la synthèse.
 
 ### Verrou anti-doublon (obligatoire, en tout premier)
 1. Chercher dans Traitement un fichier dont le titre commence par `VERROU_production`.
@@ -39,7 +48,7 @@ Une séance par heure. Chaque séance traite UN sujet DE BOUT EN BOUT (séance A
 - D'abord, un sujet dont tout est prêt sauf la publication (voix produite, non publié) : le terminer (séance B).
 - Sinon, le premier sujet dont les sources sont « ⬜ » : séance A puis séance B.
 - Avant de publier : si Participants › « NN - Titre » contient déjà la vidéo finale, ne rien refaire (marquer « Publié »).
-- Si tous les sujets sont « Publié » : déplacer les fichiers du dossier Plan dans Archives, envoyer un dernier compte rendu « Production terminée » (une seule fois : écrire « Production terminée » en tête de plan_de_travail.md ; si c'est déjà écrit, s'arrêter sans mail).
+- Si tous les sujets sont « Publié » : déplacer les fichiers du dossier Plan dans Archives et écrire « Production terminée le JJ/MM » en tête de plan_de_travail.md (le compte rendu quotidien l'annoncera). Ne pas se relancer.
 
 ## Séance A (préparer un sujet)
 1. Lire `plan_de_travail.md` (Drive › Traitement). Prendre le PREMIER sujet dont « Sources » est ⬜. Si aucun : séance terminée, le dire dans le compte rendu.
@@ -59,8 +68,8 @@ Une séance par heure. Chaque séance traite UN sujet DE BOUT EN BOUT (séance A
 4. Archiver : déplacer dans Archives les fichiers de travail du sujet devenus inutiles (vidéo sans voix, anciennes versions), APRÈS la publication. Garder sources et script dans Traitement.
 5. `plan_de_travail.md` : passer le sujet à « Publié ». Quand tout est publié : déplacer les fichiers du dossier Plan dans Archives et l'écrire dans le compte rendu.
 
-## Compte rendu (chaque séance)
-Un mail par sujet publié (pas de mail quand la séance s'arrête à cause du verrou). Mail à michel.feviliye@gmail.com uniquement (Gmail send_message, HTML simple, objet « Aides-mémoire Espace 19 – n° NN publié »), en français simple : résultat d'abord, preuves (liens Drive, tailles, durées, commit), ce qui n'a pas pu être vérifié (écoute de la voix), crédits dépensés et solde, puis « À faire de votre côté » numéroté (ex. valider l'autorisation Make si elle manque). Fiches publiées en pièce jointe si possible. Si Gmail échoue : tout mettre dans SendUserMessage.
+## Compte rendu
+Voir « Comptes rendus » plus haut : journal dans plan_de_travail.md, synthèse par le mail quotidien. Si Gmail échoue pour le mail quotidien : tout mettre dans SendUserMessage.
 
 ## Règles impératives
 Aucun secret dans les messages ou le dépôt (dépôt PUBLIC). Aucun autre appel payant que la voix ci-dessus. Ne jamais partager un dossier de travail ; ne pas modifier le partage du dossier Participants. Ne jamais réécrire l'historique git publié. Rien n'est « terminé » sans preuve.
