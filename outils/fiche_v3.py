@@ -20,7 +20,7 @@ KEY = '<svg viewBox="0 0 120 70" class="pic key"><rect x="4" y="9" width="112" h
 FOLDER = '<svg viewBox="0 0 220 170" class="folder"><rect x="20" y="30" width="80" height="30" rx="8" fill="#E8A92C"/><rect x="50" y="10" width="110" height="120" rx="6" fill="#fff" stroke="#c9cfdb" stroke-width="3" transform="rotate(-8 105 70)"/><rect x="70" y="18" width="110" height="120" rx="6" fill="#fff" stroke="#c9cfdb" stroke-width="3" transform="rotate(6 125 78)"/><rect x="20" y="50" width="185" height="115" rx="12" fill="#FFC72C" stroke="#E0A419" stroke-width="4"/></svg>'
 
 def pied(n):
-    return f'<div class="pied"><img src="{LOGO}"><span>Espace 19 Numérique · Formation débutant · Aide-mémoire n° 01</span><span class="pn">{n} / {NB}</span></div>'
+    return f'<div class="pied"><img src="{LOGO}"><span>Espace 19 Numérique · Formation débutant · Aide-mémoire n° 08</span><span class="pn">{n} / {NB}</span></div>'
 
 def titre(t, ico):
     return f'<h2><span class="ico">{ico}</span>{t}</h2>'
@@ -93,7 +93,7 @@ b{font-weight:700}
 
 P = []
 P.append(f'''<section class="page">
-<div class="entete"><img src="{LOGO}"><div class="bandeau"><span class="k">AIDE-MÉMOIRE N° 01 · DÉBUTANT · 10 MIN</span>
+<div class="entete"><img src="{LOGO}"><div class="bandeau"><span class="k">AIDE-MÉMOIRE N° 08 · DÉBUTANT · 10 MIN</span>
 <h1>Je crée mon premier dossier</h1><div class="s">Pour ranger mes documents sur l'ordinateur Windows.</div></div></div>
 <div class="intro"><div class="box vc analog">{FOLDER}<div><h3>Un dossier, à quoi ça sert ?</h3>
 <p>Chez vous, vous rangez vos papiers dans des <b>chemises en carton</b>. Sur l'ordinateur, un <b>dossier</b> sert pareil : <b>ranger vos documents</b> et les retrouver facilement.</p></div></div>
@@ -140,20 +140,20 @@ P.append(f'''<section class="page">{titre("À vous de jouer !", "♪")}
 {titre("Je retiens", "✓")}
 <div class="memo" style="margin-top:2mm"><span class="cis">✂ à découper et à garder près de l'ordinateur</span><h3>Créer un dossier en 4 gestes</h3>
 <div class="row"><div><i>1</i>« Nouveau »</div><div><i>2</i>« Dossier »</div><div><i>3</i>Je tape le nom</div><div><i>4</i>Entrée</div></div></div>
-<div class="deux" style="margin-top:4mm">
-<div class="box vert bravo"><div class="med">01</div><div><h3 style="margin:0">Bravo !</h3><p style="margin:0">Vous savez <b>créer un dossier</b>. Prochaine leçon : le renommer, le déplacer, le copier.</p></div></div>
-<div class="box"><div class="qrs"><div class="qr"><img src="{qr(URL_SUJET)}" style="width:30mm">Revoir la vidéo</div>
-<div class="qr" style="font-size:8.5pt"><img src="{qr(URL_TOUS)}" style="width:17mm">Tous les<br>aide-mémoire</div></div>
-<p style="font-size:8.5pt;margin:1.5mm 0 0">Visez le QR code avec l'appareil photo de votre téléphone.</p></div></div>
-<p style="font-size:9.5pt;margin-top:3mm;color:#6b5a68">S'entraîner sur ordinateur : <b>{URL_PAGE.replace("https://", "")}</b></p>
+<div class="box vert bravo" style="margin-top:4mm"><div class="med">08</div><div><h3 style="margin:0">Bravo !</h3><p style="margin:0">Vous savez <b>créer un dossier</b>. Prochain aide-mémoire : le renommer, le déplacer, le copier.</p></div></div>
+<div class="box" style="margin-top:4mm;display:flex;gap:6mm;align-items:center"><img src="{qr(URL_SUJET)}" style="width:32mm;border:2px solid #3a0a33;border-radius:2.5mm;padding:1.5mm">
+<div><h3>Revoir la vidéo de cet aide-mémoire</h3><p style="font-size:10.5pt">Visez ce QR code avec l'appareil photo de votre téléphone, puis touchez le lien qui apparaît.</p>
+<p style="font-size:9.5pt;color:#6b5a68;margin:0">S'entraîner sur ordinateur : <b>{URL_PAGE.replace("https://", "")}</b></p></div></div>
 {pied(3)}</section>''')
 
 P.append(f'''<section class="page">{titre("Mes notes", "✎")}
 <p style="font-size:10.5pt;color:#6b5a68">Écrivez ici vos questions, vos astuces, les noms de vos dossiers…</p>
-<div class="lignes">{''.join('<div class="l"></div>' for _ in range(28))}</div>
+<div class="lignes">{''.join('<div class="l"></div>' for _ in range(21))}</div>
+<div class="box vc" style="position:absolute;left:14mm;right:14mm;bottom:22mm;display:flex;gap:5mm;align-items:center"><img src="{qr(URL_TOUS)}" style="width:20mm;border:2px solid #3a0a33;border-radius:2mm;padding:1mm">
+<div><h3 style="margin:0">Tous les aide-mémoire de la formation</h3><p style="margin:0;font-size:10pt">Ce QR code ouvre la liste complète : vidéos et fiches de tous les sujets.</p></div></div>
 {pied(4)}</section>''')
 
-HTML = f'<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>01 - Je crée mon premier dossier</title><style>{CSS}</style></head><body>{"".join(P)}</body></html>'
+HTML = f'<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>08 - Je crée mon premier dossier</title><style>{CSS}</style></head><body>{"".join(P)}</body></html>'
 open(out.replace(".pdf", ".html"), "w").write(HTML)
 
 async def main():
