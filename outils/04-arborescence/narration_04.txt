@@ -1,0 +1,33 @@
+Comprendre l'arborescence.
+
+Dans l'ordinateur, vos documents sont rangés. Pour les retrouver, il faut comprendre ce rangement. Prenez votre temps.
+
+Imaginez une armoire. Dans l'armoire, des tiroirs. Dans un tiroir, des chemises en carton. Et dans une chemise, des feuilles.
+
+Dans l'ordinateur, c'est pareil. Les tiroirs et les chemises s'appellent des dossiers. Les feuilles s'appellent des fichiers.
+
+Ce rangement ressemble à un arbre : un tronc, des branches, puis des feuilles. C'est pour cela qu'on l'appelle l'arborescence.
+
+Pour voir ce rangement, cliquez sur le dossier jaune, dans la barre des tâches. C'est l'Explorateur de fichiers.
+
+Une fenêtre s'ouvre. À gauche, une colonne : ce sont les grands tiroirs. Bureau, Téléchargements, Documents, Images.
+
+Cliquez sur Documents. À droite, son contenu s'affiche : des dossiers jaunes.
+
+Pour ouvrir le dossier Lettres, faites un double-clic : deux clics rapides, avec le bouton gauche.
+
+Le dossier s'ouvre. Voici les fichiers : vos feuilles, bien rangées.
+
+En haut, la barre d'adresse montre le chemin : Documents, puis Lettres. C'est l'adresse de votre rangement.
+
+Pour revenir au tiroir Documents, cliquez sur Documents, dans la barre d'adresse. Vous remontez d'un étage.
+
+Mettez la vidéo en pause, et essayez sur votre ordinateur.
+
+Bon à savoir : la petite flèche qui monte, à gauche de la barre d'adresse, fait la même chose.
+
+À vous de jouer ! Ouvrez l'Explorateur de fichiers, puis Documents. Ouvrez un dossier, puis remontez. Mettez la vidéo en pause.
+
+Voici la solution. Cliquez sur le dossier jaune, puis sur Documents. Double-cliquez sur un dossier. Pour remonter, cliquez sur Documents en haut.
+
+Retenez bien : les dossiers sont des tiroirs, les fichiers sont des feuilles. Le chemin, en haut, vous dit où vous êtes. À bientôt à Espace 19 !
