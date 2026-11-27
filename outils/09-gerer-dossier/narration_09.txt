@@ -1,0 +1,27 @@
+Renommer, déplacer, copier, effacer un dossier.
+
+Un dossier, c'est une chemise en carton. On peut changer son étiquette, le changer de tiroir, le copier, ou le jeter. Prenez votre temps.
+
+Tout commence par un clic droit sur le dossier. Un menu s'ouvre. En haut, de petites images. Posez la souris sur une image : son nom apparaît.
+
+Pour changer le nom, faites un clic droit sur le dossier Lettres. Puis cliquez sur Renommer.
+
+Le nom est surligné en bleu. Tapez le nouveau nom, par exemple Courrier. Puis appuyez sur la touche Entrée.
+
+Pour faire une copie, faites un clic droit sur le dossier Recettes. Puis cliquez sur Copier.
+
+Ouvrez l'endroit voulu, par exemple Bureau. Faites un clic droit dans un espace vide, puis cliquez sur Coller. Le dossier est maintenant à deux endroits.
+
+Pour déplacer un dossier, c'est presque pareil. Cliquez sur Couper au lieu de Copier. Puis collez-le à l'endroit voulu. Le dossier change de place.
+
+Mettez la vidéo en pause, et essayez sur votre ordinateur.
+
+Pour jeter un dossier, faites un clic droit dessus. Puis cliquez sur Supprimer. Il part dans la Corbeille.
+
+Pas de panique ! Sur le bureau, double-cliquez sur la Corbeille. Faites un clic droit sur le dossier, puis cliquez sur Restaurer. Il retourne à sa place.
+
+À vous de jouer ! Renommez le dossier Essai en Vacances. Puis supprimez-le. Mettez la vidéo en pause.
+
+Voici la solution. Clic droit sur Essai, puis Renommer. Tapez Vacances, puis Entrée. Ensuite, clic droit sur Vacances, puis Supprimer.
+
+Retenez bien : tout commence par un clic droit. Renommer, Copier, Couper, Coller, Supprimer. Et la Corbeille garde ce que vous jetez. À bientôt à Espace 19 !

@@ -1,0 +1,22 @@
+{
+ "numero": "09",
+ "titre": "Renommer, déplacer, copier, effacer un dossier",
+ "marges": {"intro": 1.5, "menu": 2.5, "renommer": 3, "taper": 2.5, "copier": 3, "coller": 3, "deplacer": 3.5, "supprimer": 3, "corbeille": 3.5},
+ "scenes": [
+  {"id": "titre", "narration": "Renommer, déplacer, copier, effacer un dossier.", "caption": ""},
+  {"id": "intro", "narration": "Un dossier, c'est une chemise en carton. On peut changer son étiquette, le changer de tiroir, le copier, ou le jeter. Prenez votre temps.", "caption": "Quatre gestes pour bien ranger"},
+  {"id": "menu", "narration": "Tout commence par un clic droit sur le dossier. Un menu s'ouvre. En haut, de petites images. Posez la souris sur une image : son nom apparaît.", "caption": "Le clic droit sur le dossier"},
+  {"id": "renommer", "narration": "Pour changer le nom, faites un clic droit sur le dossier Lettres. Puis cliquez sur Renommer.", "caption": "1. Renommer"},
+  {"id": "taper", "narration": "Le nom est surligné en bleu. Tapez le nouveau nom, par exemple Courrier. Puis appuyez sur la touche Entrée.", "caption": "Tapez le nouveau nom, puis Entrée"},
+  {"id": "copier", "narration": "Pour faire une copie, faites un clic droit sur le dossier Recettes. Puis cliquez sur Copier.", "caption": "2. Copier"},
+  {"id": "coller", "narration": "Ouvrez l'endroit voulu, par exemple Bureau. Faites un clic droit dans un espace vide, puis cliquez sur Coller. Le dossier est maintenant à deux endroits.", "caption": "Clic droit dans le vide, puis Coller"},
+  {"id": "deplacer", "narration": "Pour déplacer un dossier, c'est presque pareil. Cliquez sur Couper au lieu de Copier. Puis collez-le à l'endroit voulu. Le dossier change de place.", "caption": "3. Déplacer : Couper, puis Coller"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "supprimer", "narration": "Pour jeter un dossier, faites un clic droit dessus. Puis cliquez sur Supprimer. Il part dans la Corbeille.", "caption": "4. Supprimer"},
+  {"id": "corbeille", "narration": "Pas de panique ! Sur le bureau, double-cliquez sur la Corbeille. Faites un clic droit sur le dossier, puis cliquez sur Restaurer. Il retourne à sa place.", "caption": "Pas de panique : la Corbeille"},
+  {"id": "exercice", "narration": "À vous de jouer ! Renommez le dossier Essai en Vacances. Puis supprimez-le. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Clic droit sur Essai, puis Renommer. Tapez Vacances, puis Entrée. Ensuite, clic droit sur Vacances, puis Supprimer.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : tout commence par un clic droit. Renommer, Copier, Couper, Coller, Supprimer. Et la Corbeille garde ce que vous jetez. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
