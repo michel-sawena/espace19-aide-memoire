@@ -1,0 +1,22 @@
+{
+ "numero": "20",
+ "titre": "Le carnet d'adresses",
+ "marges": {"intro": 1.5, "ouvrir": 2.5, "creer": 3, "remplir": 3, "enregistrer": 2.5, "pause1": 3, "chercher": 3, "modifier": 3, "ecrire": 3, "supprimer": 3, "exercice": 2},
+ "scenes": [
+  {"id": "titre", "narration": "Le carnet d'adresses.", "caption": ""},
+  {"id": "intro", "narration": "Vous avez sans doute un petit répertoire en papier, avec les noms de vos proches. Le carnet d'adresses, c'est la même chose, pour vos mails. Plus besoin de retenir les adresses !", "caption": "Un répertoire pour vos mails"},
+  {"id": "ouvrir", "narration": "Pour ouvrir votre carnet, tapez contacts point google point com dans la barre d'adresse. Puis appuyez sur Entrée. La liste de vos contacts apparaît.", "caption": "Ouvrir le carnet"},
+  {"id": "creer", "narration": "Pour ajouter une personne, cliquez sur Créer un contact, en haut à gauche.", "caption": "1. Créer un contact"},
+  {"id": "remplir", "narration": "Une fiche s'ouvre. Tapez le prénom, puis le nom. Ensuite, tapez son adresse mail. Vérifiez bien chaque lettre.", "caption": "Remplissez la fiche"},
+  {"id": "enregistrer", "narration": "Cliquez sur Enregistrer. Bravo ! La personne est dans votre carnet.", "caption": "Enregistrer"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "chercher", "narration": "Pour retrouver quelqu'un, cliquez dans la barre de recherche, en haut. Tapez les premières lettres du nom. Puis cliquez sur la bonne personne.", "caption": "2. Retrouver une personne"},
+  {"id": "modifier", "narration": "Une adresse a changé ? Ouvrez la fiche de la personne. Cliquez sur Modifier. Corrigez, puis cliquez sur Enregistrer.", "caption": "3. Modifier une fiche"},
+  {"id": "ecrire", "narration": "Pour écrire à un contact, ouvrez un nouveau mail. Dans la case À, tapez les premières lettres du nom. Le carnet vous propose la personne : cliquez dessus. L'adresse s'écrit toute seule !", "caption": "4. Écrire à un contact"},
+  {"id": "supprimer", "narration": "Pour retirer quelqu'un, ouvrez sa fiche. Cliquez sur les trois petits points, appelés Plus. Puis cliquez sur Supprimer, et confirmez.", "caption": "5. Supprimer un contact"},
+  {"id": "exercice", "narration": "À vous de jouer ! Ajoutez Jeanne Martin, avec l'adresse jeanne point martin arobase exemple point fr. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Cliquez sur Créer un contact. Tapez Jeanne, puis Martin, puis l'adresse. Cliquez sur Enregistrer.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : le carnet garde les adresses à votre place. Créer un contact, Enregistrer, et la recherche pour retrouver. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
