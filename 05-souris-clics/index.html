@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 - La souris : le curseur et les clics · Espace 19 Numérique</title>
+<style>
+  :root { --jaune:#FFD400; --bleu:#0F2864; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", system-ui, Arial, sans-serif; background:#0d1f4d; color:#111; }
+  header { background:var(--bleu); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; border-bottom:6px solid var(--jaune); }
+  header h1 { margin:0; font-size:28px; }
+  header .num { background:var(--jaune); color:#000; font-weight:800; border-radius:10px; padding:4px 12px; font-size:22px; }
+  #consigne { background:#fff; margin:16px auto 10px; max-width:1100px; border:5px solid var(--jaune); border-radius:16px; padding:16px 22px; font-size:28px; font-weight:700; color:var(--bleu); min-height:84px; display:flex; align-items:center; gap:18px; }
+  #consigne .essais { margin-left:auto; font-size:20px; color:#444; font-weight:600; white-space:nowrap; }
+  #ecran { position:relative; margin:0 auto; transform-origin:top center; width:1100px; height:620px; border-radius:12px; overflow:hidden; background:linear-gradient(#1d3c8a,#3a7bd5); user-select:none; }
+  /* bureau */
+  .ico { position:absolute; left:22px; width:96px; text-align:center; color:#fff; font-size:17px; font-weight:600; text-shadow:0 1px 3px #000; padding:6px 0; border-radius:8px; cursor:default; }
+  .ico:hover { background:rgba(255,255,255,.18); }
+  .ico svg { width:56px; height:62px; display:block; margin:0 auto 4px; }
+  #corbeille { top:18px; } #photos { top:130px; } #bloc { top:242px; }
+  .ico.sel { background:rgba(120,170,230,.75); outline:2px solid #c8e1ff; }
+  .barre { position:absolute; left:0; right:0; bottom:0; height:56px; background:#eef0f5; display:flex; justify-content:center; align-items:center; gap:22px; }
+  .barre .ic { width:48px; height:46px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:26px; }
+  .barre .ic:hover { background:#dfe4ee; }
+  .carreaux { display:grid; grid-template-columns:13px 13px; gap:3px; }
+  .carreaux i { width:13px; height:13px; background:#0078d7; display:block; }
+  #heure { position:absolute; right:18px; bottom:6px; text-align:center; font-size:15px; line-height:21px; }
+  #heure b { font-size:17px; }
+  #menu { position:absolute; left:250px; top:70px; width:600px; height:470px; background:#f3f4f8; border:2px solid #aab0c0; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.45); display:none; }
+  #menu .rech { margin:18px 28px 8px; height:38px; border-radius:19px; background:#fff; border:2px solid #c3c8d2; }
+  #menu h4 { margin:8px 40px; font-size:20px; }
+  #menu .grille { display:grid; grid-template-columns:repeat(6, 1fr); gap:30px 10px; padding:10px 36px; }
+  #menu .grille div { width:46px; height:46px; border-radius:8px; margin:0 auto; }
+  #menu .bas { position:absolute; left:0; right:0; bottom:0; height:64px; background:#e6e8ee; border-top:2px solid #d4d8e0; border-radius:0 0 12px 12px; display:flex; align-items:center; padding:0 26px; font-size:20px; font-weight:600; gap:12px; }
+  #menu .avatar { width:36px; height:36px; border-radius:50%; background:#a0aabe; }
+  #menu .marche { margin-left:auto; width:44px; height:44px; display:flex; align-items:center; justify-content:center; }
+  #menu .marche svg { width:26px; height:26px; }
+  /* fenêtres */
+  .fen { position:absolute; left:200px; top:40px; width:820px; height:470px; background:#fff; border:2px solid #96a0b4; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.45); display:none; z-index:5; }
+  .fen .titre { height:44px; background:#e8ecf4; border-radius:8px 8px 0 0; display:flex; align-items:center; padding-left:16px; font-size:18px; font-weight:600; gap:10px; }
+  .fen .btns { margin-left:auto; display:flex; height:100%; }
+  .fen .btns span { width:58px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#444; }
+  .fen .croix { cursor:default; font-size:24px !important; }
+  .fen .croix:hover { background:#e81123; color:#fff !important; border-radius:0 8px 0 0; }
+  .fen .photos { display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; padding:26px 40px; }
+  .fen .photos div { height:150px; border-radius:8px; position:relative; overflow:hidden; }
+  .fen .photos div::after { content:""; position:absolute; left:20px; right:40px; bottom:0; height:90px; background:#467858; clip-path:polygon(0 100%, 45% 0, 100% 100%); }
+  /* surcouches (modèle 08/02) */
+  .cadre { position:absolute; border:9px solid var(--jaune); border-radius:12px; pointer-events:none; animation:clign .7s steps(1) infinite; z-index:20; display:none; }
+  @keyframes clign { 50% { border-color: transparent; } }
+  #curseur { position:absolute; width:40px; height:52px; z-index:30; display:none; pointer-events:none; transition:left 1.6s ease-in-out, top 1.6s ease-in-out; }
+  .onde { position:absolute; width:20px; height:20px; border:6px solid var(--jaune); border-radius:50%; z-index:29; pointer-events:none; animation:onde .7s ease-out forwards; }
+  @keyframes onde { to { transform:scale(4); opacity:0; } }
+  #bravo, #fin { position:absolute; inset:0; background:rgba(13,31,77,.82); display:none; align-items:center; justify-content:center; z-index:40; }
+  .carte { background:#fff; border:8px solid var(--jaune); border-radius:24px; padding:30px 44px; text-align:center; max-width:760px; }
+  .carte h3 { font-size:42px; margin:0 0 12px; color:var(--bleu); }
+  .carte p { font-size:24px; margin:8px 0 22px; }
+  .gros { font-size:26px; font-weight:700; padding:14px 28px; border-radius:14px; border:3px solid var(--bleu); background:var(--jaune); color:#000; margin:6px 10px; cursor:pointer; }
+  .gros.sec { background:#fff; }
+  #accueil { position:absolute; inset:0; background:rgba(13,31,77,.9); display:flex; align-items:center; justify-content:center; z-index:50; }
+  .note { max-width:1100px; margin:10px auto 30px; color:#cfd8ef; font-size:16px; }
+  .note a { color:#fff; }
+  @media (max-width:1150px) { #ecran { transform-origin:top left; } }
+</style>
+</head>
+<body>
+<header><span class="num">05</span><h1>La souris : le curseur et les clics</h1></header>
+<div id="consigne"><span id="txt">Bienvenue !</span><span class="essais" id="essais"></span></div>
+
+<div id="ecran">
+  <div class="ico" id="corbeille"><svg viewBox="0 0 56 62"><rect x="1" y="7" width="54" height="8" rx="3" fill="#e1e6f0" stroke="#78829a" stroke-width="2"/><rect x="20" y="1" width="16" height="7" fill="#e1e6f0" stroke="#78829a" stroke-width="2"/><path d="M6 16 H50 L44 60 H12 Z" fill="#ebf0f8" stroke="#78829a" stroke-width="2"/><path d="M18 24 L20 54 M28 24 V54 M38 24 L36 54" stroke="#96a0b4" stroke-width="3"/></svg>Corbeille</div>
+  <div class="ico" id="photos"><svg viewBox="0 0 56 62"><rect x="2" y="12" width="22" height="10" rx="3" fill="#e1aa28"/><rect x="2" y="17" width="52" height="38" rx="5" fill="#fac846" stroke="#c8961e" stroke-width="2"/></svg>Photos</div>
+  <div class="ico" id="bloc"><svg viewBox="0 0 56 62"><rect x="4" y="6" width="48" height="54" rx="5" fill="#fff" stroke="#5a6e96" stroke-width="2"/><rect x="4" y="6" width="48" height="10" fill="#4696e6"/><path d="M12 28 H44 M12 37 H44 M12 46 H44" stroke="#96a0b4" stroke-width="2"/></svg>Bloc-notes</div>
+  <div class="barre">
+    <div class="ic" title="Démarrer"><div class="carreaux"><i></i><i></i><i></i><i></i></div></div>
+    <div class="ic">🔍</div><div class="ic">📁</div><div class="ic">🌐</div>
+    <div id="heure"><b>10:30</b><br>27/11/2026</div>
+  </div>
+  <div class="fen" id="fen"><div class="titre">📁 Photos<div class="btns"><span>—</span><span>☐</span><span class="croix" id="croix" title="Fermer">✕</span></div></div>
+    <div class="photos"><div style="background:#78bef0"></div><div style="background:#fac878"></div><div style="background:#8cd296"></div><div style="background:#78bef0"></div><div style="background:#fac878"></div><div style="background:#8cd296"></div></div></div>
+
+  <div class="cadre" id="cadre"></div>
+  <svg id="curseur" viewBox="0 0 20 32"><path d="M1 1 L1 26 L7 20 L12 31 L16 29 L11 19 L19 19 Z" fill="#fff" stroke="#000" stroke-width="2"/></svg>
+
+  <div id="accueil"><div class="carte">
+    <h3>La souris : le curseur et les clics</h3>
+    <p>D'abord, regardez la démonstration.<br>Ensuite, c'est vous qui faites l'exercice.</p>
+    <button class="gros" id="b-demo">▶ Voir la démonstration</button>
+    <button class="gros sec" id="b-exo">Passer à l'exercice</button>
+  </div></div>
+  <div id="bravo"><div class="carte"><h3>Bravo !</h3><p>Vous avez choisi le dossier d'un clic, vous l'avez ouvert d'un double-clic, puis fermé avec la croix.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+  <div id="fin"><div class="carte"><h3>Voici la solution</h3><p>Regardez bien, puis essayez à nouveau.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+</div>
+<p class="note">Exercice d'entraînement : tout se passe dans cette page, rien n'est modifié sur votre ordinateur. Utilisez toujours le bouton GAUCHE de la souris.
+  · <a href="../">Tous les aide-mémoire</a></p>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const ecran = $('ecran'), cadre = $('cadre'), cur = $('curseur');
+  let S = 1, etat, mode = 'accueil', echecs = 0, minuteurs = [];
+
+  function dire(t) {
+    $('txt').textContent = t;
+    try {
+      if (!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t.replace(/«|»/g, ''));
+      u.lang = 'fr-FR'; u.rate = 0.85;
+      const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith('fr'));
+      if (v) u.voice = v;
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  function plus_tard(ms, f) { minuteurs.push(setTimeout(f, ms)); }
+  function stop() { minuteurs.forEach(clearTimeout); minuteurs = []; }
+
+  // état : 'choisir' (cliquer une fois sur Photos) | 'ouvrir' (double-clic) | 'fermer' (croix) | 'fini'
+  function choisir(id) { ['corbeille','photos','bloc'].forEach(x => $(x).classList.toggle('sel', x === id)); }
+  function reset() { etat = 'choisir'; choisir(null); rendu(); }
+  function rendu() { $('fen').style.display = etat === 'fermer' ? 'block' : 'none'; }
+  function pos(el) {
+    const a = el.getBoundingClientRect(), b = ecran.getBoundingClientRect();
+    return { x:(a.left - b.left)/S, y:(a.top - b.top)/S, w:a.width/S, h:a.height/S };
+  }
+  function montrer(el) {
+    if (!el) { cadre.style.display = 'none'; return; }
+    const p = pos(el);
+    Object.assign(cadre.style, { display:'block', left:(p.x-12)+'px', top:(p.y-12)+'px', width:(p.w+24)+'px', height:(p.h+24)+'px' });
+  }
+  function onde(el, decal = 0) {
+    setTimeout(() => {
+      const p = pos(el), o = document.createElement('div'); o.className = 'onde';
+      o.style.left = (p.x + p.w/2 - 10) + 'px'; o.style.top = (p.y + p.h/2 - 10) + 'px';
+      ecran.appendChild(o); setTimeout(() => o.remove(), 800);
+    }, decal);
+  }
+  function bouger(el) { const p = pos(el); cur.style.display = 'block'; cur.style.left = (p.x + p.w/2) + 'px'; cur.style.top = (p.y + p.h/2) + 'px'; }
+
+  // ---------- démonstration ----------
+  function demo() {
+    stop(); mode = 'demo'; $('accueil').style.display = 'none'; reset(); $('essais').textContent = 'Démonstration';
+    cur.style.transition = 'none'; cur.style.left = '700px'; cur.style.top = '420px'; cur.style.display = 'block';
+    setTimeout(() => cur.style.transition = '', 50);
+    let t = 300;
+    const pas = (txt, el, action, double = false, attente = 6500) => {
+      plus_tard(t, () => { dire(txt); montrer(el()); bouger(el()); });
+      plus_tard(t + 3200, () => { onde(el()); if (double) onde(el(), 250); action(); montrer(null); });
+      t += attente;
+    };
+    pas("Faites glisser la souris : le curseur va sur le dossier « Photos ». Un clic, avec le bouton gauche : le dossier est choisi, il devient bleu.", () => $('photos'), () => { choisir('photos'); etat = 'ouvrir'; }, false, 8000);
+    pas("Maintenant, un double-clic : deux fois très vite, sans bouger la souris. La fenêtre s'ouvre.", () => $('photos'), () => { choisir(null); etat = 'fermer'; rendu(); }, true, 7500);
+    pas("Pour fermer la fenêtre, un clic sur la croix, tout en haut à droite.", () => $('croix'), () => { etat = 'fini'; rendu(); });
+    plus_tard(t, () => { montrer(null); dire("La fenêtre est fermée. À vous maintenant !"); });
+    plus_tard(t + 4000, () => { cur.style.display = 'none'; exercice(); });
+  }
+
+  // ---------- exercice ----------
+  function exercice() {
+    stop(); mode = 'exo'; echecs = 0;
+    ['accueil', 'bravo', 'fin'].forEach(x => $(x).style.display = 'none');
+    cur.style.display = 'none'; montrer(null); reset(); majEssais();
+    dire("À vous ! Cliquez une fois sur le dossier « Photos ».");
+  }
+  function majEssais() { $('essais').textContent = mode === 'exo' ? `Essais ratés : ${echecs} / 3` : ''; }
+  function echec(msg) {
+    echecs++; majEssais();
+    if (echecs >= 3) { solution(); return; }
+    dire(msg);
+  }
+  function solution() {
+    stop(); mode = 'demo'; reset(); $('essais').textContent = 'Solution';
+    dire("Voici la solution. Regardez bien.");
+    cur.style.display = 'block';
+    let t = 2500;
+    const pas = (el, action, double = false, attente = 4500) => { plus_tard(t, () => { montrer(el()); bouger(el()); }); plus_tard(t + 2200, () => { onde(el()); if (double) onde(el(), 250); action(); montrer(null); }); t += attente; };
+    pas(() => $('photos'), () => { choisir('photos'); dire("Un clic sur « Photos » : il devient bleu."); });
+    pas(() => $('photos'), () => { choisir(null); etat = 'fermer'; rendu(); dire("Un double-clic : la fenêtre s'ouvre."); }, true);
+    pas(() => $('croix'), () => { etat = 'fini'; rendu(); dire("Un clic sur la croix : elle se ferme."); });
+    plus_tard(t, () => { cur.style.display = 'none'; $('fin').style.display = 'flex'; });
+  }
+  function reussi() {
+    etat = 'fini'; rendu();
+    dire("Bravo ! Vous savez cliquer, double-cliquer et fermer une fenêtre.");
+    $('bravo').style.display = 'flex';
+  }
+
+  // ---------- clics de l'utilisateur ----------
+  const NOMS = { corbeille: "la Corbeille", bloc: "le Bloc-notes" };
+  ['corbeille', 'photos', 'bloc'].forEach(id => {
+    $(id).addEventListener('click', e => {
+      if (mode !== 'exo') return; e.stopPropagation();
+      if (etat === 'choisir') {
+        choisir(id);
+        if (id === 'photos') { etat = 'ouvrir'; dire("Très bien, le dossier est choisi : il est bleu ! Maintenant, double-cliquez dessus : deux fois très vite."); }
+        else echec(`Vous avez choisi ${NOMS[id]}. Pas de panique : cliquez une fois sur le dossier jaune « Photos ».`);
+      } else if (etat === 'ouvrir' && id !== 'photos') {
+        choisir(id); echec(`Ici, c'est ${NOMS[id]}. Double-cliquez plutôt sur le dossier jaune « Photos ».`);
+      } else if (etat === 'ouvrir') choisir('photos');
+    });
+    $(id).addEventListener('dblclick', e => {
+      if (mode !== 'exo' || id !== 'photos' || (etat !== 'ouvrir' && etat !== 'choisir')) return; e.stopPropagation();
+      choisir(null); etat = 'fermer'; rendu();
+      dire("Bravo, la fenêtre « Photos » est ouverte ! Pour la fermer, cliquez sur la croix, tout en haut à droite.");
+    });
+  });
+  $('croix').addEventListener('click', e => { if (mode !== 'exo' || etat !== 'fermer') return; e.stopPropagation(); reussi(); });
+  $('fen').addEventListener('click', e => {
+    if (mode !== 'exo' || etat !== 'fermer') return; e.stopPropagation();
+    echec("Ici, ce sont les photos. Pour fermer, cliquez sur la croix, tout en haut à droite de la fenêtre.");
+  });
+  ecran.addEventListener('click', e => {
+    if (mode !== 'exo' || e.target.closest('.carte')) return;
+    if (etat === 'choisir' || etat === 'ouvrir') { choisir(null); if (etat === 'ouvrir') { etat = 'choisir'; dire("Le dossier n'est plus choisi. Ce n'est pas grave : cliquez de nouveau une fois sur « Photos »."); } }
+  });
+
+  $('b-demo').onclick = demo;
+  $('b-exo').onclick = exercice;
+  document.querySelectorAll('[data-act]').forEach(b => b.onclick = () => {
+    if (b.dataset.act === 'recommencer') exercice();
+    else { stop(); $('bravo').style.display = 'none'; $('fin').style.display = 'none'; mode = 'fini'; montrer(null); cur.style.display = 'none'; dire("Leçon terminée. Bravo pour votre travail, et à bientôt à Espace 19 !"); $('essais').textContent = ''; }
+  });
+
+  function echelle() { const s = S = Math.min(1, (window.innerWidth - 20) / 1100); ecran.style.transform = `scale(${s})`; ecran.style.marginBottom = (s < 1 ? -(620 * (1 - s)) : 0) + 'px'; }
+  window.addEventListener('resize', echelle); echelle();
+  reset(); dire("Bienvenue ! Cliquez sur « Voir la démonstration ».");
+})();
+</script>
+</body>
+</html>

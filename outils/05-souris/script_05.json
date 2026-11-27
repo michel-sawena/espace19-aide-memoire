@@ -1,0 +1,23 @@
+{
+ "numero": "05",
+ "titre": "La souris : le curseur et les clics",
+ "marges": {"tenir": 2, "bouger": 2, "clic": 2, "double": 2, "ouvrir": 2.5, "fermer": 2.5, "programme": 2.5, "quitter": 2.5, "panique": 1.5},
+ "scenes": [
+  {"id": "titre", "narration": "La souris : le curseur et les clics.", "caption": ""},
+  {"id": "intro", "narration": "La souris, c'est votre main dans l'ordinateur. Quand vous la faites glisser sur la table, une petite flèche bouge à l'écran : c'est le curseur.", "caption": "La souris et le curseur"},
+  {"id": "tenir", "narration": "Posez la main sur la souris, sans serrer. L'index se pose sur le bouton gauche. Le majeur se repose sur le bouton droit : nous le verrons une autre fois.", "caption": "1. Tenez la souris"},
+  {"id": "bouger", "narration": "Faites glisser la souris doucement. Le curseur suit le même chemin. Au bord de la table, soulevez la souris et reposez-la plus loin.", "caption": "2. Faites glisser la souris"},
+  {"id": "clic", "narration": "Cliquer, c'est appuyer une fois sur le bouton gauche, puis relâcher. Un clic choisit une icône : elle se colore en bleu.", "caption": "3. Le clic : pour choisir"},
+  {"id": "double", "narration": "Double-cliquer, c'est appuyer deux fois très vite sur le bouton gauche, sans bouger la souris. Le double-clic ouvre un dossier ou un programme.", "caption": "4. Le double-clic : pour ouvrir"},
+  {"id": "ouvrir", "narration": "Essayons. Double-cliquez sur le dossier Photos. Une fenêtre s'ouvre.", "caption": "5. Double-cliquez sur « Photos »"},
+  {"id": "fermer", "narration": "Pour fermer la fenêtre, cliquez une fois sur la croix, tout en haut à droite.", "caption": "6. Cliquez sur la croix"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et entraînez-vous.", "caption": "Pause : entraînez-vous"},
+  {"id": "programme", "narration": "Un programme se lance de la même façon. Double-cliquez sur l'icône Bloc-notes. Le programme s'ouvre : on peut y écrire.", "caption": "7. Lancez un programme"},
+  {"id": "quitter", "narration": "Pour quitter le programme, cliquez sur la croix, en haut à droite. Il se ferme.", "caption": "8. Quittez le programme"},
+  {"id": "panique", "narration": "Pas de panique ! Si rien ne s'ouvre, recommencez le double-clic un peu plus vite. Et si un petit cercle tourne, l'ordinateur travaille : patientez.", "caption": "Pas de panique"},
+  {"id": "exercice", "narration": "À vous de jouer ! Ouvrez le dossier Photos, puis fermez-le. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Double-cliquez sur Photos : la fenêtre s'ouvre. Cliquez sur la croix : elle se ferme.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : un clic pour choisir, un double-clic pour ouvrir, la croix pour fermer. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
