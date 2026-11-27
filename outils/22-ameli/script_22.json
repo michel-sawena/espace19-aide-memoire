@@ -1,0 +1,107 @@
+{
+ "numero": "22",
+ "titre": "ameli.fr",
+ "marges": {
+  "intro": 1.5,
+  "avant": 2,
+  "adresse": 3,
+  "compte": 2.5,
+  "numero": 3,
+  "connecter": 2.5,
+  "code": 3,
+  "accueil": 2,
+  "attestation": 3,
+  "prudence": 2.5,
+  "aide": 2
+ },
+ "scenes": [
+  {
+   "id": "titre",
+   "narration": "Mon compte ameli.",
+   "caption": ""
+  },
+  {
+   "id": "intro",
+   "narration": "Ameli, c'est le site de l'Assurance Maladie. Avec votre compte ameli, vous suivez vos remboursements et vous obtenez vos papiers, sans vous déplacer. Prenez votre temps.",
+   "caption": "À quoi sert ameli ?"
+  },
+  {
+   "id": "avant",
+   "narration": "Avant de commencer, prenez votre carte Vitale. Votre numéro de sécurité sociale y est écrit. Il vous faut aussi votre mot de passe.",
+   "caption": "Préparez votre carte Vitale"
+  },
+  {
+   "id": "adresse",
+   "narration": "Ouvrez le navigateur. Dans la barre d'adresse, tapez ameli point f r, puis appuyez sur Entrée.",
+   "caption": "1. Tapez ameli.fr"
+  },
+  {
+   "id": "compte",
+   "narration": "Sur le site, cliquez sur l'accès au compte ameli. La page de connexion s'affiche.",
+   "caption": "2. Allez sur le compte ameli"
+  },
+  {
+   "id": "numero",
+   "narration": "Dans la première case, tapez votre numéro de sécurité sociale : les treize premiers chiffres, sans la clé. Dans la deuxième case, tapez votre mot de passe.",
+   "caption": "3. Numéro, puis mot de passe"
+  },
+  {
+   "id": "connecter",
+   "narration": "Cliquez sur le bouton Me connecter.",
+   "caption": "4. Cliquez sur « Me connecter »"
+  },
+  {
+   "id": "code",
+   "narration": "Un code de sécurité à six chiffres peut être demandé. Il arrive dans votre boîte mail. Recopiez-le dans la case. Il est valable quinze minutes.",
+   "caption": "5. Le code reçu par mail"
+  },
+  {
+   "id": "accueil",
+   "narration": "Bravo ! Vous êtes dans votre compte. Ici, vous voyez vos remboursements et vous trouvez vos documents.",
+   "caption": "Votre compte"
+  },
+  {
+   "id": "attestation",
+   "narration": "Par exemple, pour votre mutuelle, cliquez sur Attestation de droits. Le document s'affiche. Vous pouvez l'enregistrer ou l'imprimer.",
+   "caption": "6. « Attestation de droits »"
+  },
+  {
+   "id": "pause1",
+   "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.",
+   "caption": ""
+  },
+  {
+   "id": "prudence",
+   "narration": "Attention aux faux messages. L'Assurance Maladie ne vous demande jamais votre mot de passe, ni votre carte bancaire, par mail ou par SMS. Ne cliquez pas sur le lien. Tapez ameli point f r vous-même.",
+   "caption": "Attention aux faux messages"
+  },
+  {
+   "id": "aide",
+   "narration": "Mot de passe oublié ? Cliquez sur Mot de passe oublié. Besoin d'aide ? Appelez le trente-six quarante-six, ou venez à Espace 19.",
+   "caption": "Pas de panique"
+  },
+  {
+   "id": "exercice",
+   "narration": "À vous de jouer ! Allez sur ameli point f r, et connectez-vous à votre compte. Mettez la vidéo en pause.",
+   "caption": "Exercice"
+  },
+  {
+   "id": "attente",
+   "narration": "",
+   "caption": ""
+  },
+  {
+   "id": "solution",
+   "narration": "Voici la solution. Tapez ameli point f r, puis Entrée. Cliquez sur le compte ameli. Tapez votre numéro, puis votre mot de passe. Cliquez sur Me connecter.",
+   "caption": "Solution"
+  },
+  {
+   "id": "resume",
+   "narration": "Retenez bien : tapez ameli point f r vous-même. Votre numéro, votre mot de passe, puis Me connecter. Votre mot de passe reste secret. À bientôt à Espace 19 !",
+   "caption": ""
+  }
+ ],
+ "phrases_verifiees": [
+  "Ameli, c'est le site de l'Assurance Maladie."
+ ]
+}
