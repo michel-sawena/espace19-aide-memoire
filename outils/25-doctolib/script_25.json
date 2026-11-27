@@ -1,0 +1,104 @@
+{
+ "numero": "25",
+ "titre": "Doctolib : prendre rendez-vous",
+ "marges": {
+  "intro": 1.5,
+  "compte": 1.5,
+  "adresse": 3,
+  "recherche": 3.5,
+  "liste": 2,
+  "creneau": 3,
+  "motif": 2.5,
+  "confirmer": 3,
+  "mesrdv": 3,
+  "annuler": 3,
+  "delai": 2
+ },
+ "scenes": [
+  {
+   "id": "titre",
+   "narration": "Doctolib : prendre rendez-vous chez le médecin.",
+   "caption": ""
+  },
+  {
+   "id": "intro",
+   "narration": "Doctolib est un site pour prendre rendez-vous chez un médecin, un dentiste ou un kiné, sans téléphoner. C'est comme l'agenda du secrétariat, ouvert jour et nuit.",
+   "caption": "À quoi sert Doctolib ?"
+  },
+  {
+   "id": "compte",
+   "narration": "Il vous faut un compte Doctolib, avec votre adresse mail et votre téléphone. Pas de panique, prenez votre temps.",
+   "caption": "Avant de commencer"
+  },
+  {
+   "id": "adresse",
+   "narration": "Ouvrez le navigateur. Dans la barre d'adresse, tapez doctolib point f r, puis appuyez sur Entrée.",
+   "caption": "1. Allez sur doctolib.fr"
+  },
+  {
+   "id": "recherche",
+   "narration": "Au milieu de la page, il y a deux cases. Dans la première, tapez le métier, par exemple : médecin généraliste. Dans la seconde, tapez votre ville. Puis cliquez sur Rechercher.",
+   "caption": "2. Cherchez un praticien"
+  },
+  {
+   "id": "liste",
+   "narration": "La liste des praticiens s'affiche. À côté de chacun, les heures libres.",
+   "caption": "3. Regardez la liste"
+  },
+  {
+   "id": "creneau",
+   "narration": "Cliquez sur une heure qui vous convient. C'est un créneau : une case libre dans l'agenda.",
+   "caption": "4. Cliquez sur une heure libre"
+  },
+  {
+   "id": "motif",
+   "narration": "Choisissez le motif, c'est-à-dire la raison du rendez-vous. Si on vous le demande, connectez-vous à votre compte.",
+   "caption": "5. Choisissez le motif"
+  },
+  {
+   "id": "confirmer",
+   "narration": "Vérifiez bien le jour, l'heure et l'adresse. Puis cliquez sur le bouton pour confirmer. Votre rendez-vous est pris. Bravo !",
+   "caption": "6. Vérifiez, puis confirmez"
+  },
+  {
+   "id": "pause1",
+   "narration": "Mettez la vidéo en pause, et regardez sur votre ordinateur.",
+   "caption": ""
+  },
+  {
+   "id": "mesrdv",
+   "narration": "Pour retrouver vos rendez-vous, connectez-vous, puis cliquez sur Mes rendez-vous.",
+   "caption": "7. Retrouvez vos rendez-vous"
+  },
+  {
+   "id": "annuler",
+   "narration": "Un empêchement ? Ouvrez le rendez-vous, puis cliquez sur le bouton pour annuler. Indiquez la raison, puis confirmez. La place est libérée pour un autre patient.",
+   "caption": "8. Annulez si besoin"
+  },
+  {
+   "id": "delai",
+   "narration": "Peu de temps avant le rendez-vous, l'annulation en ligne peut être fermée. Pas de panique : téléphonez au cabinet.",
+   "caption": "Pas de panique"
+  },
+  {
+   "id": "exercice",
+   "narration": "À vous de jouer ! Sur Doctolib, cherchez un médecin généraliste dans votre ville. Regardez les heures libres, sans réserver. Mettez la vidéo en pause.",
+   "caption": "Exercice"
+  },
+  {
+   "id": "attente",
+   "narration": "",
+   "caption": ""
+  },
+  {
+   "id": "solution",
+   "narration": "Voici la solution. Tapez médecin généraliste dans la première case, votre ville dans la seconde, puis cliquez sur Rechercher.",
+   "caption": "Solution"
+  },
+  {
+   "id": "resume",
+   "narration": "Retenez bien : cherchez le métier et la ville. Cliquez sur une heure libre. Choisissez le motif, puis confirmez. Pour annuler : Mes rendez-vous. À bientôt !",
+   "caption": ""
+  }
+ ]
+}
