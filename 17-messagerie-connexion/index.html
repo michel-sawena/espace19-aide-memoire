@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17 - Se connecter et se déconnecter de sa messagerie · Espace 19 Numérique</title>
+<style>
+  :root { --jaune:#FFD400; --bleu:#0F2864; --vio:#93117E; --btn:#0067C0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", system-ui, Arial, sans-serif; background:#0d1f4d; color:#111; }
+  header { background:var(--bleu); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; border-bottom:6px solid var(--jaune); }
+  header h1 { margin:0; font-size:28px; }
+  header .num { background:var(--jaune); color:#000; font-weight:800; border-radius:10px; padding:4px 12px; font-size:22px; }
+  #consigne { background:#fff; margin:16px auto 10px; max-width:1100px; border:5px solid var(--jaune); border-radius:16px; padding:16px 22px; font-size:28px; font-weight:700; color:var(--bleu); min-height:84px; display:flex; align-items:center; gap:16px; }
+  #consigne .essais { margin-left:auto; font-size:20px; color:#444; font-weight:600; white-space:nowrap; }
+  #ecran { position:relative; margin:0 auto; transform-origin:top center; width:1100px; height:600px; border-radius:12px; overflow:hidden; background:linear-gradient(#1d3c8a,#3a7bd5); user-select:none; }
+  .barre { position:absolute; left:0; right:0; bottom:0; height:56px; background:#eef0f5; display:flex; justify-content:center; align-items:center; gap:26px; font-size:30px; }
+  .nav { position:absolute; left:50px; top:24px; width:1000px; height:500px; background:#fff; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.45); overflow:hidden; }
+  .onglet { height:40px; background:#dee2ec; display:flex; align-items:flex-end; padding:0 10px; }
+  .onglet span { background:#fafafc; border-radius:8px 8px 0 0; padding:7px 18px; font-size:17px; width:260px; }
+  .onglet .x { margin-left:auto; background:none; width:auto; font-size:20px; color:#555; padding-bottom:8px; }
+  .adr { height:52px; background:#fafafc; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #dde2ea; }
+  .adr div { background:#eef0f4; border-radius:20px; padding:6px 20px; font-size:19px; width:560px; color:#333; }
+  .page { position:absolute; left:0; right:0; top:92px; bottom:0; }
+  .carte-cx { position:absolute; left:50%; top:22px; transform:translateX(-50%); width:500px; height:370px; border:2px solid #cdd2dc; border-radius:18px; text-align:center; padding:24px 40px; }
+  .carte-cx h2 { margin:0 0 4px; color:var(--vio); font-size:32px; }
+  .carte-cx .exo { color:#555; font-size:17px; margin-bottom:20px; }
+  .pill { display:inline-block; border:1px solid #cdd2dc; border-radius:20px; padding:4px 16px; font-size:19px; margin-bottom:12px; }
+  .carte-cx input { width:100%; font-size:24px; padding:10px 14px; border:2px solid #9aa1ad; border-radius:8px; }
+  .carte-cx input:focus { outline:none; border:3px solid var(--btn); }
+  .suite { margin-top:26px; float:right; width:120px; height:52px; border:0; border-radius:26px; background:var(--btn); color:#fff; font-size:30px; cursor:pointer; }
+  .boite .haut { height:70px; background:#f8eaf5; display:flex; align-items:center; padding:0 24px; }
+  .boite .haut b { color:var(--vio); font-size:28px; }
+  .boite .haut small { margin-left:16px; color:#666; font-size:16px; }
+  .rond { margin-left:auto; width:54px; height:54px; border-radius:50%; background:var(--vio); color:#fff; font-size:28px; font-weight:800; border:0; cursor:pointer; }
+  .msg { margin:12px 24px 0; height:58px; border:1px solid #dcdfe6; border-radius:8px; background:#f7f8fb; display:flex; align-items:center; gap:18px; padding:0 18px; font-size:20px; }
+  .msg b { width:300px; }
+  .msg.neuf { background:#fff6d6; }
+  .menu { position:absolute; right:16px; top:74px; width:320px; background:#fff; border:2px solid #b8bec9; border-radius:14px; box-shadow:0 6px 16px rgba(0,0,0,.25); padding:16px; text-align:center; display:none; z-index:5; }
+  .menu .r2 { width:56px; height:56px; border-radius:50%; background:var(--vio); color:#fff; font-size:28px; font-weight:800; line-height:56px; margin:0 auto 8px; }
+  .menu .deco { margin-top:12px; font-size:22px; font-weight:700; padding:10px 30px; border:2px solid #9aa1ad; border-radius:24px; background:#fff; cursor:pointer; }
+  .cadre { position:absolute; border:9px solid var(--jaune); border-radius:14px; pointer-events:none; animation:clign .7s steps(1) infinite; z-index:20; display:none; }
+  @keyframes clign { 50% { border-color: transparent; } }
+  #curseur { position:absolute; width:40px; height:52px; z-index:30; display:none; pointer-events:none; transition:left 1.4s ease-in-out, top 1.4s ease-in-out; }
+  .onde { position:absolute; width:20px; height:20px; border:6px solid var(--jaune); border-radius:50%; z-index:29; pointer-events:none; animation:onde .7s ease-out forwards; }
+  @keyframes onde { to { transform:scale(4); opacity:0; } }
+  .voile { position:absolute; inset:0; background:rgba(13,31,77,.85); display:none; align-items:center; justify-content:center; z-index:50; }
+  .carte { background:#fff; border:8px solid var(--jaune); border-radius:24px; padding:30px 44px; text-align:center; max-width:820px; }
+  .carte h3 { font-size:42px; margin:0 0 12px; color:var(--bleu); }
+  .carte p { font-size:24px; margin:8px 0 22px; }
+  .gros { font-size:26px; font-weight:700; padding:14px 28px; border-radius:14px; border:3px solid var(--bleu); background:var(--jaune); color:#000; margin:6px 10px; cursor:pointer; }
+  .gros.sec { background:#fff; }
+  .note { max-width:1100px; margin:10px auto 30px; color:#cfd8ef; font-size:16px; }
+  .note a { color:#fff; }
+</style>
+</head>
+<body>
+<header><span class="num">17</span><h1>Se connecter et se déconnecter de sa messagerie</h1></header>
+<div id="consigne"><span id="txt">Bienvenue !</span><span class="essais" id="essais"></span></div>
+
+<div id="ecran">
+  <div class="barre"><span>🪟</span><span>🔍</span><span>📁</span><span>🌐</span></div>
+  <div class="nav">
+    <div class="onglet"><span>✉ Messagerie d'exercice</span><span class="x">—&nbsp;&nbsp;☐&nbsp;&nbsp;✕</span></div>
+    <div class="adr"><div>messagerie d'exercice (simulation)</div></div>
+    <div class="page" id="p-cx">
+      <div class="carte-cx">
+        <h2>Ma messagerie</h2><div class="exo">messagerie d'exercice</div>
+        <div class="pill" id="pill" style="display:none"></div>
+        <input id="champ" autocomplete="off" spellcheck="false" placeholder="Adresse e-mail">
+        <button class="suite" id="suite" aria-label="Continuer">➜</button>
+      </div>
+    </div>
+    <div class="page boite" id="p-boite" style="display:none">
+      <div class="haut"><b>Ma messagerie</b><small>messagerie d'exercice</small><button class="rond" id="rond" aria-label="Mon compte">J</button></div>
+      <div id="liste"></div>
+      <div class="menu" id="menu"><div class="r2">J</div><div>jean@exemple.fr</div><button class="deco" id="deco">Déconnexion</button></div>
+    </div>
+  </div>
+  <div class="cadre" id="cadre"></div>
+  <svg id="curseur" viewBox="0 0 20 32"><path d="M1 1 L1 26 L7 20 L12 31 L16 29 L11 19 L19 19 Z" fill="#fff" stroke="#000" stroke-width="2"/></svg>
+
+  <div class="voile" id="accueil" style="display:flex"><div class="carte">
+    <h3>Ouvrir et refermer sa messagerie</h3>
+    <p>Pour l'exercice, l'adresse est <b>jean@exemple.fr</b><br>et le mot de passe est <b>soleil</b>.<br>Regardez d'abord la démonstration, puis entraînez-vous.</p>
+    <button class="gros" id="b-demo">▶ Voir la démonstration</button>
+    <button class="gros sec" id="b-go">Je m'entraîne</button>
+  </div></div>
+  <div class="voile" id="fin"><div class="carte">
+    <h3 id="fin-t">Bravo !</h3>
+    <p id="fin-p"></p>
+    <button class="gros" id="b-re">↺ Recommencer</button>
+    <button class="gros sec" id="b-stop">Terminer la leçon</button>
+  </div></div>
+</div>
+<p class="note">Entraînement de l'aide-mémoire n° 17 · Espace 19 Numérique. Ceci est une simulation : aucune vraie messagerie, rien n'est envoyé sur Internet. N'écrivez jamais votre vrai mot de passe ici. <a href="../">Tous les entraînements</a></p>
+
+<script>
+const $ = id => document.getElementById(id);
+const ecran = $("ecran"), champ = $("champ"), cadre = $("cadre"), cur = $("curseur"), menu = $("menu");
+const ADRESSE = "jean@exemple.fr", MDP = "soleil";
+const MESSAGES = [["Espace 19 Numérique", "Bienvenue à l'atelier de lundi"], ["Marie (exemple)", "Photos du repas de dimanche"], ["Paul (exemple)", "On se voit jeudi ?"]];
+let etape = -1, echecs = 0, enDemo = false;
+const consigne = t => $("txt").innerHTML = t;
+function majEssais() { $("essais").textContent = echecs ? `Essais manqués : ${echecs} / 3` : ""; }
+function rect(e) { const a = e.getBoundingClientRect(), b = ecran.getBoundingClientRect(), k = b.width / 1100; return {x:(a.left-b.left)/k, y:(a.top-b.top)/k, w:a.width/k, h:a.height/k}; }
+function montrer(e) { if (!e) { cadre.style.display = "none"; return; } const r = rect(e); Object.assign(cadre.style, {left:r.x-12+"px", top:r.y-12+"px", width:r.w+24+"px", height:r.h+24+"px", display:"block"}); }
+$("liste").innerHTML = MESSAGES.map((m, i) => `<div class="msg${i ? "" : " neuf"}"><b>${m[0]}</b>${m[1]}</div>`).join("");
+
+function vueConnexion(mdp) {
+  $("p-cx").style.display = "block"; $("p-boite").style.display = "none"; menu.style.display = "none";
+  champ.value = ""; champ.type = mdp ? "password" : "text"; champ.placeholder = mdp ? "Mot de passe" : "Adresse e-mail";
+  $("pill").style.display = mdp ? "inline-block" : "none"; $("pill").textContent = ADRESSE;
+}
+function vueBoite() { $("p-cx").style.display = "none"; $("p-boite").style.display = "block"; menu.style.display = "none"; }
+
+const ETAPES = [
+  () => { vueConnexion(false); consigne(`1. Cliquez dans la case et tapez <b>${ADRESSE}</b>. Puis cliquez sur le <b>bouton bleu</b>.`); montrer(champ); },
+  () => { vueConnexion(true); consigne(`Bien ! 2. Tapez le mot de passe d'exercice : <b>${MDP}</b>. Puis cliquez sur le <b>bouton bleu</b>.`); montrer(champ); champ.focus(); },
+  () => { vueBoite(); consigne("Bravo, vous êtes connecté ! 3. Pour vous déconnecter, cliquez sur le <b>rond</b>, en haut à droite."); montrer($("rond")); },
+  () => { menu.style.display = "block"; consigne("4. Cliquez sur <b>Déconnexion</b>."); montrer($("deco")); },
+];
+function aller(n) { etape = n; ETAPES[n](); }
+
+function valider() {
+  if (enDemo || (etape !== 0 && etape !== 1)) return;
+  const v = champ.value.trim();
+  if (etape === 0) {
+    if (!v) return rate("La case est vide. Cliquez dedans, puis tapez l'adresse.");
+    if (v.toLowerCase().replace(/\s/g, "") !== ADRESSE) return rate(`L'adresse doit être <b>${ADRESSE}</b>, sans espace. Vérifiez lettre par lettre.`);
+    aller(1);
+  } else {
+    if (!v) return rate("La case est vide. Tapez le mot de passe <b>soleil</b>.");
+    if (v !== MDP) return rate("Ce n'est pas le bon mot de passe. Tapez <b>soleil</b>, tout en minuscules.");
+    aller(2);
+  }
+}
+$("suite").onclick = valider;
+champ.addEventListener("keydown", e => { if (e.key === "Enter") valider(); });
+$("rond").onclick = e => { e.stopPropagation(); if (enDemo || etape !== 2) return; aller(3); };
+$("deco").onclick = e => { e.stopPropagation(); if (enDemo || etape !== 3) return; vueConnexion(false); montrer(null); fin(true); };
+$("p-boite").addEventListener("click", e => {
+  if (enDemo) return;
+  if (etape === 2) rate("Ce n'est pas là. Cherchez le <b>rond</b>, tout en haut à droite.");
+  else if (etape === 3 && !menu.contains(e.target)) rate("Le menu est ouvert : cliquez sur <b>Déconnexion</b>.");
+});
+function rate(msg) {
+  echecs++; majEssais();
+  if (echecs >= 3) { solution(); return; }
+  consigne("Pas de souci ! " + msg);
+}
+function fin(ok) {
+  $("fin-t").textContent = ok ? "Bravo !" : "Voici la solution";
+  $("fin-p").innerHTML = ok ? "Vous savez <b>ouvrir</b> et <b>refermer</b> votre messagerie.<br>Sur un ordinateur public, déconnectez-vous toujours avant de partir." : "L'adresse, le bouton bleu. Le mot de passe, le bouton bleu.<br>Puis le <b>rond</b> en haut à droite, et <b>Déconnexion</b>.<br>Vous pouvez recommencer quand vous voulez.";
+  $("fin").style.display = "flex"; consigne(ok ? "Bravo ! Exercice réussi." : "Voici la solution.");
+}
+
+// ---------- animations (démonstration et solution) ----------
+const pause = ms => new Promise(r => setTimeout(r, ms));
+async function viser(e) { const r = rect(e); cur.style.display = "block"; cur.style.left = r.x + r.w * 0.5 + "px"; cur.style.top = r.y + r.h * 0.5 + "px"; montrer(e); await pause(1600); }
+function onde() { const o = document.createElement("div"); o.className = "onde"; o.style.left = parseFloat(cur.style.left) - 10 + "px"; o.style.top = parseFloat(cur.style.top) - 10 + "px"; ecran.appendChild(o); setTimeout(() => o.remove(), 800); }
+async function taper(mot) { champ.value = ""; for (const c of mot) { champ.value += c; await pause(150); } await pause(500); }
+async function scenario() {
+  vueConnexion(false); consigne(`Je clique dans la case et je tape l'adresse : <b>${ADRESSE}</b>.`);
+  await viser(champ); onde(); await taper(ADRESSE);
+  consigne("Je clique sur le <b>bouton bleu</b>."); await viser($("suite")); onde(); await pause(500);
+  vueConnexion(true); consigne(`Je tape le mot de passe (<b>${MDP}</b>) : il s'affiche en petits points.`); await viser(champ); await taper(MDP);
+  consigne("Je clique sur le <b>bouton bleu</b>."); await viser($("suite")); onde(); await pause(500);
+  vueBoite(); consigne("Je suis connecté. Pour sortir : le <b>rond</b>, en haut à droite."); await viser($("rond")); onde(); menu.style.display = "block"; await pause(700);
+  consigne("Puis <b>Déconnexion</b>."); await viser($("deco")); onde(); await pause(500);
+  vueConnexion(false); montrer(null); consigne("La messagerie est refermée."); await pause(1200);
+}
+async function demo() {
+  enDemo = true; $("accueil").style.display = "none"; echecs = 0; majEssais();
+  await scenario(); consigne("À vous maintenant !"); await pause(1200);
+  cur.style.display = "none"; enDemo = false; depart();
+}
+async function solution() {
+  enDemo = true; consigne("Regardez bien, je vous montre."); await pause(800);
+  await scenario(); cur.style.display = "none"; enDemo = false; fin(false);
+}
+function depart() {
+  $("fin").style.display = "none"; $("accueil").style.display = "none"; cur.style.display = "none";
+  echecs = 0; majEssais(); aller(0);
+}
+$("b-demo").onclick = demo; $("b-go").onclick = depart; $("b-re").onclick = depart;
+$("b-stop").onclick = () => { $("fin").style.display = "none"; consigne("Leçon terminée. Bravo et à bientôt à Espace 19 Numérique !"); montrer(null); };
+vueConnexion(false);
+function ajuster() { const k = Math.min(1, (window.innerWidth - 20) / 1100); ecran.style.transform = `scale(${k})`; ecran.style.marginBottom = (k - 1) * 600 + "px"; }
+window.addEventListener("resize", ajuster); ajuster();
+</script>
+</body>
+</html>

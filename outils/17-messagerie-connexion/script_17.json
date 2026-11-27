@@ -1,0 +1,23 @@
+{
+ "numero": "17",
+ "titre": "Se connecter et se déconnecter de sa messagerie",
+ "marges": {"intro": 1.5, "besoin": 2, "ouvrir": 3, "adresse": 3, "motdepasse": 3, "boite": 2, "rond": 3, "deco": 3, "panique": 2, "public": 2},
+ "scenes": [
+  {"id": "titre", "narration": "Se connecter et se déconnecter de sa messagerie.", "caption": ""},
+  {"id": "intro", "narration": "Votre messagerie, c'est votre boîte aux lettres sur Internet. Se connecter, c'est l'ouvrir avec sa clé. Se déconnecter, c'est la refermer.", "caption": "À quoi ça sert ?"},
+  {"id": "besoin", "narration": "Il vous faut deux choses : votre adresse e-mail, et votre mot de passe. Gardez-les notés, dans un endroit sûr, chez vous.", "caption": "Ce qu'il vous faut"},
+  {"id": "ouvrir", "narration": "Ouvrez le navigateur. Dans la barre d'adresse, tapez l'adresse de votre messagerie. Pour Gmail : mail point google point com. Puis appuyez sur Entrée.", "caption": "1. Allez sur le site de votre messagerie"},
+  {"id": "adresse", "narration": "Cliquez dans la case, et tapez votre adresse e-mail. Puis cliquez sur le bouton bleu, pour continuer.", "caption": "2. Tapez votre adresse e-mail"},
+  {"id": "motdepasse", "narration": "Tapez maintenant votre mot de passe. Il s'affiche en petits points : c'est normal, il est caché. Cliquez sur le bouton bleu.", "caption": "3. Tapez votre mot de passe"},
+  {"id": "boite", "narration": "Vos messages s'affichent. Bravo, vous êtes connecté !", "caption": "Vous êtes connecté"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "rond", "narration": "Pour vous déconnecter, cliquez sur le petit rond, en haut à droite. Il montre votre photo, ou votre initiale.", "caption": "4. Cliquez sur le rond, en haut à droite"},
+  {"id": "deco", "narration": "Un menu s'ouvre. Cliquez sur Déconnexion. Votre boîte est refermée.", "caption": "5. Cliquez sur « Déconnexion »"},
+  {"id": "panique", "narration": "Pas de panique ! Si une adresse qui n'est pas la vôtre est déjà affichée, cliquez sur Utiliser un autre compte. Mot de passe oublié ? Demandez de l'aide à Espace 19.", "caption": "Pas de panique"},
+  {"id": "public", "narration": "Important : sur un ordinateur public, comme à la médiathèque, déconnectez-vous toujours avant de partir.", "caption": "Ordinateur public : déconnectez-vous"},
+  {"id": "exercice", "narration": "À vous de jouer ! Connectez-vous à votre messagerie, puis déconnectez-vous. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Tapez votre adresse, puis votre mot de passe. Pour sortir, cliquez sur le rond en haut à droite, puis sur Déconnexion.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : l'adresse, le mot de passe, et vous êtes connecté. Le rond en haut à droite, puis Déconnexion, pour refermer. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
