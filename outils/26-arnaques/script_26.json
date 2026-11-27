@@ -1,0 +1,22 @@
+{
+ "numero": "26",
+ "titre": "Repérer les arnaques",
+ "marges": {"intro": 1.5, "sms": 2.5, "signes": 3, "mail": 3, "appel": 3, "regle": 2, "reflexe": 2.5, "signaler": 2.5, "victime": 2.5, "solution": 3},
+ "scenes": [
+  {"id": "titre", "narration": "Repérer les arnaques.", "caption": ""},
+  {"id": "intro", "narration": "Certains messages sont des pièges. Ils imitent votre banque, la poste ou une administration, pour voler votre argent. Pas de panique : quelques signes suffisent à les reconnaître.", "caption": "Faux SMS, faux mails, faux appels"},
+  {"id": "sms", "narration": "Voici un faux SMS. C'est un exemple inventé. Il parle d'un colis bloqué, et demande de payer vite, en cliquant sur un lien.", "caption": "1. Le faux SMS"},
+  {"id": "signes", "narration": "Premier signe : l'urgence. Deuxième signe : un lien vers un site inconnu. Troisième signe : on vous demande de l'argent, ou votre carte bancaire.", "caption": "Les signes qui doivent alerter"},
+  {"id": "mail", "narration": "Voici un faux mail, lui aussi inventé. Regardez l'adresse de l'expéditeur : elle est bizarre. Le message a des fautes, et il vous menace.", "caption": "2. Le faux mail"},
+  {"id": "appel", "narration": "Troisième piège : le faux conseiller au téléphone. Il dit appeler de votre banque, pour des opérations suspectes. Puis il vous demande un code reçu par SMS.", "caption": "3. Le faux conseiller"},
+  {"id": "regle", "narration": "Retenez bien : votre banque ne vous demandera jamais vos codes, ni votre mot de passe. Une administration non plus.", "caption": "La règle d'or"},
+  {"id": "reflexe", "narration": "Le bon réflexe : ne cliquez pas, ne répondez pas, ne donnez rien. Au téléphone, raccrochez. Puis appelez votre banque avec le numéro habituel.", "caption": "Le bon réflexe"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et prenez le temps de relire ces signes.", "caption": ""},
+  {"id": "signaler", "narration": "Pour signaler un faux SMS, envoyez-le gratuitement au numéro trente-trois sept cents. Pour un faux mail, utilisez Signal Spam.", "caption": "Signaler"},
+  {"id": "victime", "narration": "Vous avez donné un code ? Pas de panique. Appelez vite votre banque pour faire opposition. Le site dix-sept Cyber vous guide, et Info Escroqueries répond gratuitement.", "caption": "Pas de panique"},
+  {"id": "exercice", "narration": "À vous de jouer ! Regardez ce message, et trouvez les trois signes d'arnaque. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. L'urgence : il faut agir aujourd'hui. Le lien bizarre. Et la demande de code. C'est une arnaque : on ne fait rien, et on supprime le message.", "caption": "Solution"},
+  {"id": "resume", "narration": "Urgence, lien bizarre, demande de code ou d'argent : méfiance ! Dans le doute, ne faites rien et demandez conseil. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
