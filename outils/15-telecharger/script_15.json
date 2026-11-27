@@ -1,0 +1,23 @@
+{
+ "numero": "15",
+ "titre": "Télécharger un fichier ou une image",
+ "marges": {"intro": 1.5, "dossier": 2, "fichier": 3, "liste": 2.5, "ouvrir": 2.5, "image": 2.5, "menu": 3, "enregistrer": 3, "retrouver": 3, "prudence": 2.5},
+ "scenes": [
+  {"id": "titre", "narration": "Télécharger un fichier ou une image.", "caption": ""},
+  {"id": "intro", "narration": "Télécharger, c'est copier sur votre ordinateur un document trouvé sur Internet. Comme une photocopie prise à la bibliothèque, que vous gardez chez vous. Prenez votre temps.", "caption": "Télécharger, c'est quoi ?"},
+  {"id": "dossier", "narration": "Tout ce que vous téléchargez arrive dans un dossier de votre ordinateur : le dossier Téléchargements.", "caption": "Le dossier Téléchargements"},
+  {"id": "fichier", "narration": "Pour un document, cherchez sur le site le lien de téléchargement. Cliquez une fois dessus.", "caption": "1. Cliquez sur le lien de téléchargement"},
+  {"id": "liste", "narration": "Le fichier se télécharge. Une petite fenêtre s'ouvre en haut à droite, avec son nom.", "caption": "2. Le fichier apparaît en haut à droite"},
+  {"id": "ouvrir", "narration": "Cliquez sur son nom pour l'ouvrir. Bravo !", "caption": "3. Cliquez sur le nom pour l'ouvrir"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "image", "narration": "Pour garder une image, faites un clic droit sur l'image.", "caption": "4. Clic droit sur l'image"},
+  {"id": "menu", "narration": "Un menu s'ouvre. Cliquez sur : Enregistrer l'image sous.", "caption": "5. Enregistrer l'image sous"},
+  {"id": "enregistrer", "narration": "Une fenêtre s'ouvre. Vérifiez le dossier : Téléchargements. Puis cliquez sur Enregistrer.", "caption": "6. Cliquez sur Enregistrer"},
+  {"id": "retrouver", "narration": "Pour retrouver vos fichiers, ouvrez l'Explorateur de fichiers. À gauche, cliquez sur Téléchargements. Ils sont tous là.", "caption": "7. Retrouver ses téléchargements"},
+  {"id": "prudence", "narration": "Attention : téléchargez seulement sur des sites que vous connaissez. En cas de doute, cliquez sur Annuler.", "caption": "Prudence"},
+  {"id": "exercice", "narration": "À vous de jouer ! Enregistrez une image : clic droit, Enregistrer l'image sous, puis Enregistrer. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Faites un clic droit sur l'image. Cliquez sur Enregistrer l'image sous. Puis cliquez sur Enregistrer.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : télécharger, c'est copier sur votre ordinateur. Pour une image : clic droit, puis Enregistrer l'image sous. Tout arrive dans Téléchargements. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
