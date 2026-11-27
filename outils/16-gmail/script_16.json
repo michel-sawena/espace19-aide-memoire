@@ -1,0 +1,107 @@
+{
+ "numero": "16",
+ "titre": "Créer une adresse Gmail",
+ "phrases_lentes": [
+  "Prénom, point, nom, arobase gmail point com."
+ ],
+ "marges": {
+  "intro": 1.5,
+  "analogie": 2,
+  "ouvrir": 2.5,
+  "creer": 2.5,
+  "usage": 2.5,
+  "nom": 2.5,
+  "naissance": 2.5,
+  "adresse": 3,
+  "motdepasse": 3,
+  "secours": 2.5,
+  "accepte": 2.5
+ },
+ "scenes": [
+  {
+   "id": "titre",
+   "narration": "Créer une adresse Gmail.",
+   "caption": ""
+  },
+  {
+   "id": "intro",
+   "narration": "Une adresse mail permet d'envoyer et de recevoir des messages. Créons-la ensemble. C'est gratuit. Prenez votre temps.",
+   "caption": "Votre adresse mail"
+  },
+  {
+   "id": "analogie",
+   "narration": "C'est comme votre adresse postale, mais pour Internet. Elle a toujours un petit signe au milieu : l'arobase. On dit : marie point dupont arobase gmail point com.",
+   "caption": "Comme une adresse postale"
+  },
+  {
+   "id": "ouvrir",
+   "narration": "Ouvrez le navigateur. Dans la barre d'adresse, tapez gmail point com, puis appuyez sur Entrée.",
+   "caption": "1. Tapez gmail.com"
+  },
+  {
+   "id": "creer",
+   "narration": "Cliquez sur le bouton Créer un compte.",
+   "caption": "2. Cliquez sur « Créer un compte »"
+  },
+  {
+   "id": "usage",
+   "narration": "Un petit menu s'ouvre. Cliquez sur Pour mon usage personnel.",
+   "caption": "3. « Pour mon usage personnel »"
+  },
+  {
+   "id": "nom",
+   "narration": "Tapez votre prénom, puis votre nom. Cliquez sur Suivant.",
+   "caption": "4. Votre prénom et votre nom"
+  },
+  {
+   "id": "naissance",
+   "narration": "Indiquez votre date de naissance et votre genre. Cliquez sur Suivant.",
+   "caption": "5. Date de naissance et genre"
+  },
+  {
+   "id": "adresse",
+   "narration": "Choisissez votre adresse. Google en propose. Vous pouvez aussi écrire la vôtre. Si elle est déjà prise, essayez-en une autre, par exemple avec un chiffre. Cliquez sur Suivant.",
+   "caption": "6. Choisissez votre adresse"
+  },
+  {
+   "id": "motdepasse",
+   "narration": "Inventez un mot de passe, et tapez-le deux fois. Notez-le dans un carnet, rangé chez vous. Ne le donnez à personne. Cliquez sur Suivant.",
+   "caption": "7. Le mot de passe, deux fois"
+  },
+  {
+   "id": "secours",
+   "narration": "Google peut demander votre numéro de téléphone. Il sert à retrouver votre compte en cas d'oubli. C'est utile.",
+   "caption": "8. Le téléphone, pour le secours"
+  },
+  {
+   "id": "accepte",
+   "narration": "Lisez les règles d'utilisation, puis cliquez sur J'accepte. Votre boîte mail s'ouvre. Bravo !",
+   "caption": "9. Cliquez sur « J'accepte »"
+  },
+  {
+   "id": "pause1",
+   "narration": "Mettez la vidéo en pause, et notez votre adresse dans votre carnet.",
+   "caption": ""
+  },
+  {
+   "id": "exercice",
+   "narration": "À vous de jouer ! Écrivez sur une feuille l'adresse que vous aimeriez avoir, avec l'arobase. Mettez la vidéo en pause.",
+   "caption": "Exercice"
+  },
+  {
+   "id": "attente",
+   "narration": "",
+   "caption": ""
+  },
+  {
+   "id": "solution",
+   "narration": "Voici un exemple. Prénom, point, nom, arobase gmail point com. Pas d'espace, pas d'accent.",
+   "caption": "Solution"
+  },
+  {
+   "id": "resume",
+   "narration": "Retenez bien : gmail point com, Créer un compte, puis suivez les étapes. Gardez votre mot de passe secret. À bientôt à Espace 19 !",
+   "caption": ""
+  }
+ ]
+}
