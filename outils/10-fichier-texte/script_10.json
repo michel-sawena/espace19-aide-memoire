@@ -1,0 +1,25 @@
+{
+ "numero": "10",
+ "titre": "Créer, enregistrer, fermer un fichier texte",
+ "marges": {"intro": 1.5, "demarrer": 3, "taper": 3, "page": 3, "fichier": 3, "dossier": 3, "nom": 3, "enregistre": 1.5, "raccourci": 2, "fermer": 3, "question": 1.5, "retrouver": 3},
+ "scenes": [
+  {"id": "titre", "narration": "Créer, enregistrer et fermer un fichier texte.", "caption": ""},
+  {"id": "intro", "narration": "Un fichier texte, c'est comme une feuille de papier. Vous écrivez dessus, puis vous la rangez dans un dossier, pour la retrouver plus tard. Prenez votre temps.", "caption": "Une feuille dans l'ordinateur"},
+  {"id": "demarrer", "narration": "Pour écrire, on utilise un programme très simple : le Bloc-notes. Cliquez sur le bouton Démarrer, en bas de l'écran.", "caption": "1. Cliquez sur « Démarrer »"},
+  {"id": "taper", "narration": "Tapez Bloc-notes au clavier. Puis cliquez sur Bloc-notes, dans la liste.", "caption": "2. Tapez « Bloc-notes »"},
+  {"id": "page", "narration": "Une page blanche s'ouvre. Cliquez dedans, puis écrivez votre texte. Par exemple : du pain, du lait, des pommes.", "caption": "3. Écrivez votre texte"},
+  {"id": "fichier", "narration": "Maintenant, il faut ranger cette feuille. Cliquez sur Fichier, en haut à gauche, puis sur Enregistrer.", "caption": "4. « Fichier », puis « Enregistrer »"},
+  {"id": "dossier", "narration": "Une fenêtre s'ouvre. À gauche, cliquez sur Documents : c'est le tiroir où votre fichier sera rangé.", "caption": "5. Choisissez « Documents »"},
+  {"id": "nom", "narration": "En bas, dans la case du nom, tapez un nom facile. Par exemple : Courses. Puis cliquez sur le bouton Enregistrer.", "caption": "6. Un nom, puis « Enregistrer »"},
+  {"id": "enregistre", "narration": "Regardez en haut : le nom Courses apparaît. Votre texte est rangé. Bravo !", "caption": "C'est enregistré !"},
+  {"id": "raccourci", "narration": "Bon à savoir : les touches Contrôle et S, appuyées ensemble, enregistrent aussi.", "caption": "Bon à savoir : Ctrl + S"},
+  {"id": "fermer", "narration": "Pour fermer le Bloc-notes, cliquez sur la croix, en haut à droite. Enregistrez toujours avant de fermer.", "caption": "7. Fermez : cliquez sur la croix"},
+  {"id": "question", "narration": "Pas de panique : si une question s'affiche en fermant, c'est que le texte n'est pas enregistré. Choisissez d'enregistrer.", "caption": "Pas de panique"},
+  {"id": "retrouver", "narration": "Pour retrouver votre fichier, ouvrez l'Explorateur de fichiers, puis Documents. Le voici : Courses. Un double-clic le rouvre.", "caption": "8. Retrouvez votre fichier"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "exercice", "narration": "À vous de jouer ! Ouvrez le Bloc-notes et écrivez votre prénom. Enregistrez dans Documents, puis fermez. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Ouvrez le Bloc-notes avec Démarrer, et écrivez. Cliquez sur Fichier, puis Enregistrer. Choisissez Documents, tapez un nom, puis Enregistrer. Enfin, cliquez sur la croix.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : j'écris, j'enregistre, puis je ferme. Toujours dans cet ordre ! À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
