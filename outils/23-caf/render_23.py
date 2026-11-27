@@ -304,7 +304,7 @@ def frame(sid, t, D, cap):
 def main(script, durs, out):
     sc = json.load(open(script)); du = json.load(open(durs))
     pr = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "27", "-pix_fmt", "yuv420p", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
+                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "31", "-pix_fmt", "yuv420p", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     total = 0
     for s in sc["scenes"]:
         D = du[s["id"]]; n = int(round(D * FPS)); total += n
