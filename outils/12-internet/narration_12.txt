@@ -1,0 +1,31 @@
+Internet et les navigateurs.
+
+Internet, on en parle partout. Voyons ensemble ce que c'est, et comment y aller. Prenez votre temps.
+
+Un réseau, ce sont des ordinateurs reliés entre eux, pour échanger. Comme des maisons reliées par des routes.
+
+Internet, c'est un immense réseau, qui relie des réseaux du monde entier. Ordinateurs, téléphones, tablettes : tous peuvent s'y connecter.
+
+Un peu d'histoire. Le premier réseau, appelé Arpanet, est né aux États-Unis en mille neuf cent soixante-neuf. En mille neuf cent quatre-vingt-neuf, au CERN, près de Genève, Tim Berners-Lee invente le Web : les pages que l'on consulte.
+
+Pour aller sur Internet, il faut un programme : le navigateur. C'est votre voiture, pour rouler sur les routes d'Internet.
+
+Il en existe plusieurs. Microsoft Edge, déjà installé sur les ordinateurs Windows. Google Chrome. Mozilla Firefox. Et Safari, sur les appareils Apple. Ils font tous la même chose.
+
+Pour ouvrir le navigateur, cliquez une fois sur son icône, dans la barre des tâches.
+
+La fenêtre du navigateur s'ouvre. En haut, une longue case : c'est la barre d'adresse.
+
+Cliquez dans la barre d'adresse. Puis tapez l'adresse du site. Par exemple : google point f r.
+
+Appuyez sur la touche Entrée. La page du site s'affiche. Bravo !
+
+Mettez la vidéo en pause, et essayez sur votre ordinateur.
+
+Pour fermer le navigateur, cliquez sur la croix, tout en haut à droite.
+
+À vous de jouer ! Ouvrez le navigateur. Tapez google point f r dans la barre d'adresse, puis Entrée. Mettez la vidéo en pause.
+
+Voici la solution. Cliquez sur l'icône du navigateur. Cliquez dans la barre d'adresse. Tapez google point f r, puis appuyez sur Entrée.
+
+Retenez bien : Internet est un grand réseau. Le navigateur est le programme pour y aller. L'adresse se tape en haut, puis Entrée. À bientôt à Espace 19 !
