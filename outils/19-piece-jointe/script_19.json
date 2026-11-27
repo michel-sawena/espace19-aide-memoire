@@ -1,0 +1,22 @@
+{
+ "numero": "19",
+ "titre": "Joindre et lire une pièce jointe",
+ "marges": {"intro": 1.5, "nouveau": 2.5, "trombone": 3, "choisir": 3.5, "joint": 3, "recu": 3, "lire": 3.5, "garder": 3.5, "prudence": 2.5},
+ "scenes": [
+  {"id": "titre", "narration": "Joindre et lire une pièce jointe.", "caption": ""},
+  {"id": "intro", "narration": "Une pièce jointe, c'est un document glissé dans l'enveloppe, avec la lettre. Une photo, une facture, une attestation. Prenez votre temps.", "caption": "Un document avec la lettre"},
+  {"id": "nouveau", "narration": "Ouvrez votre messagerie. Cliquez sur Nouveau message. Écrivez l'adresse, l'objet et votre texte, comme d'habitude.", "caption": "1. Nouveau message"},
+  {"id": "trombone", "narration": "En bas de la fenêtre, cherchez le petit trombone. C'est le dessin de la pièce jointe. Cliquez dessus.", "caption": "2. Cliquez sur le trombone"},
+  {"id": "choisir", "narration": "Une fenêtre s'ouvre, avec les dossiers de votre ordinateur. Trouvez votre document. Puis double-cliquez dessus.", "caption": "3. Double-cliquez sur le document"},
+  {"id": "joint", "narration": "Le nom du document apparaît en bas du message. Il est bien attaché. Cliquez sur Envoyer. Bravo !", "caption": "4. Envoyer"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "recu", "narration": "Quand on vous envoie un document, un petit trombone apparaît à côté du message. Cliquez sur le message pour l'ouvrir.", "caption": "Lire une pièce jointe"},
+  {"id": "lire", "narration": "En bas du message, il y a une petite image : la vignette. Cliquez dessus. Le document s'ouvre en grand.", "caption": "Cliquez sur la vignette"},
+  {"id": "garder", "narration": "Pour le garder, posez la souris sur la vignette. Cliquez sur la flèche vers le bas. Le document va dans le dossier Téléchargements.", "caption": "Le garder : la flèche vers le bas"},
+  {"id": "prudence", "narration": "Attention ! N'ouvrez jamais une pièce jointe envoyée par un inconnu. Dans le doute, demandez conseil à Espace 19.", "caption": "Prudence"},
+  {"id": "exercice", "narration": "À vous de jouer ! Envoyez-vous une photo à vous-même, en pièce jointe. Puis ouvrez-la. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Nouveau message, avec votre adresse. Le trombone, double-clic sur la photo, puis Envoyer. Ensuite, ouvrez le message reçu, et cliquez sur la vignette.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : le trombone, c'est la pièce jointe. Pour lire, cliquez sur la vignette. Et jamais de pièce jointe d'un inconnu. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
