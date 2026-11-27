@@ -1,0 +1,22 @@
+{
+ "numero": "06",
+ "titre": "La souris : déplacer, agrandir, clic droit, molette",
+ "marges": {"intro": 1.5, "glisser": 1.5, "deplacer": 3, "fenetre": 3, "agrandir": 3, "coin": 3, "clicdroit": 3, "fermer": 2, "molette": 3},
+ "scenes": [
+  {"id": "titre", "narration": "La souris : déplacer, agrandir, clic droit et molette.", "caption": ""},
+  {"id": "intro", "narration": "Avec la souris, vous pouvez aussi déplacer des objets, changer la taille d'une fenêtre, ouvrir un petit menu, et faire défiler une page. Prenez votre temps.", "caption": "Quatre gestes utiles"},
+  {"id": "glisser", "narration": "Le premier geste s'appelle glisser-déposer. C'est comme prendre une feuille sur la table, la porter, puis la poser ailleurs.", "caption": "Le glisser-déposer"},
+  {"id": "deplacer", "narration": "Placez la flèche sur une icône. Appuyez sur le bouton gauche, et gardez-le enfoncé. Déplacez la souris, puis relâchez le bouton.", "caption": "1. Déplacez une icône"},
+  {"id": "fenetre", "narration": "Une fenêtre se déplace de la même façon. Attrapez-la par sa barre du haut, gardez le bouton enfoncé, et faites-la glisser.", "caption": "2. Déplacez une fenêtre"},
+  {"id": "agrandir", "narration": "En haut à droite, il y a trois boutons : un trait, un carré, une croix. Cliquez sur le carré : la fenêtre remplit tout l'écran. Cliquez encore : elle reprend sa taille.", "caption": "3. Agrandissez : le carré"},
+  {"id": "coin", "narration": "Vous pouvez aussi choisir la taille. Placez la flèche sur un coin de la fenêtre : elle devient une double flèche. Gardez le bouton enfoncé, et tirez.", "caption": "4. Tirez sur un coin"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "clicdroit", "narration": "Maintenant, le bouton droit. Un clic droit ouvre un petit menu, appelé menu contextuel. Il propose des actions pour l'endroit où vous avez cliqué.", "caption": "5. Le clic droit : un menu"},
+  {"id": "fermer", "narration": "Pas de panique : pour fermer ce menu sans rien choisir, cliquez à côté, avec le bouton gauche.", "caption": "Fermer le menu"},
+  {"id": "molette", "narration": "Enfin, la molette : la petite roue entre les deux boutons. Tournez-la vers vous : la page descend. Tournez-la vers l'écran : la page remonte.", "caption": "6. La molette fait défiler"},
+  {"id": "exercice", "narration": "À vous de jouer ! Déplacez une icône, agrandissez une fenêtre, puis ouvrez le menu du clic droit. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Gardez le bouton gauche enfoncé pour déplacer l'icône. Cliquez sur le carré pour agrandir. Faites un clic droit, puis cliquez à côté.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : bouton gauche enfoncé pour déplacer, le carré pour agrandir, le bouton droit pour le menu, la molette pour défiler. Bravo, et à bientôt à Espace 19 !", "caption": ""}
+ ]
+}

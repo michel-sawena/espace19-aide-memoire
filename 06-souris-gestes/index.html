@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 - La souris : déplacer, agrandir, clic droit, molette · Espace 19 Numérique</title>
+<style>
+  :root { --jaune:#FFD400; --bleu:#0F2864; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", system-ui, Arial, sans-serif; background:#0d1f4d; color:#111; }
+  header { background:var(--bleu); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:18px; border-bottom:6px solid var(--jaune); }
+  header h1 { margin:0; font-size:28px; }
+  header .num { background:var(--jaune); color:#000; font-weight:800; border-radius:10px; padding:4px 12px; font-size:22px; }
+  #consigne { background:#fff; margin:16px auto 10px; max-width:1100px; border:5px solid var(--jaune); border-radius:16px; padding:16px 22px; font-size:28px; font-weight:700; color:var(--bleu); min-height:84px; display:flex; align-items:center; gap:18px; }
+  #consigne .essais { margin-left:auto; font-size:20px; color:#444; font-weight:600; white-space:nowrap; }
+  #ecran { position:relative; margin:0 auto; transform-origin:top center; width:1100px; height:620px; border-radius:12px; overflow:hidden; background:linear-gradient(#1d3c8a,#3a7bd5); user-select:none; }
+  .ico { position:absolute; width:110px; text-align:center; color:#fff; font-size:18px; font-weight:600; text-shadow:0 1px 3px #000; padding:6px 0; border-radius:8px; }
+  .ico svg { width:60px; height:66px; display:block; margin:0 auto 4px; pointer-events:none; }
+  #lettre { left:22px; top:24px; cursor:grab; z-index:5; touch-action:none; }
+  #lettre.tient { background:rgba(120,160,230,.6); cursor:grabbing; z-index:25; }
+  #rangement { left:22px; top:330px; }
+  #rangement.cible { background:rgba(255,212,0,.35); outline:4px dashed var(--jaune); }
+  .barre { position:absolute; left:0; right:0; bottom:0; height:56px; background:#eef0f5; display:flex; justify-content:center; align-items:center; gap:22px; z-index:3; }
+  .barre .ic { width:48px; height:46px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:26px; }
+  .carreaux { display:grid; grid-template-columns:13px 13px; gap:3px; }
+  .carreaux i { width:13px; height:13px; background:#0078d7; display:block; }
+  /* fenêtre */
+  #fen { position:absolute; left:330px; top:70px; width:600px; height:400px; background:#fff; border:2px solid #9aa3b8; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.45); display:flex; flex-direction:column; overflow:hidden; z-index:4; }
+  #fen.max { left:0; top:0; width:1100px; height:564px; border-radius:0; }
+  #fen .titre { height:44px; background:#e8ecf4; display:flex; align-items:center; padding-left:14px; font-size:19px; font-weight:600; flex:none; }
+  #fen .titre .bt { width:52px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  #fen .titre .bt:hover { background:#d0d5e0; } #croix:hover { background:#e81123 !important; }
+  #fen .titre .bt svg { width:18px; height:18px; pointer-events:none; }
+  #trait { margin-left:auto; }
+  #texte { flex:1; overflow-y:auto; padding:10px 34px 20px; font-size:21px; line-height:1.55; }
+  #texte h4 { color:#93117E; margin:18px 0 4px; font-size:22px; }
+  #texte .finl { background:#e3f7f3; border:3px solid #2BB3A3; border-radius:10px; padding:10px 16px; font-weight:700; color:#11665c; margin-top:20px; }
+  /* menu du clic droit (sans libellés : ils changent selon la version de Windows) */
+  #menuctx { position:absolute; width:250px; padding:12px 0; background:#fafafc; border:2px solid #aab0c0; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.45); display:none; z-index:15; }
+  #menuctx div { height:40px; display:flex; align-items:center; gap:14px; padding:0 18px; cursor:pointer; }
+  #menuctx div:hover { background:#e1e8f6; }
+  #menuctx i { width:22px; height:22px; border-radius:5px; background:#c8cede; display:block; }
+  #menuctx b { height:12px; border-radius:6px; background:#97a0b5; display:block; }
+  /* surcouches (modèle 08/02/03) */
+  .cadre { position:absolute; border:9px solid var(--jaune); border-radius:12px; pointer-events:none; animation:clign .7s steps(1) infinite; z-index:20; display:none; }
+  @keyframes clign { 50% { border-color: transparent; } }
+  #curseur { position:absolute; width:40px; height:52px; z-index:30; display:none; pointer-events:none; transition:left 1.4s ease-in-out, top 1.4s ease-in-out; }
+  .onde { position:absolute; width:20px; height:20px; border:6px solid var(--jaune); border-radius:50%; z-index:29; pointer-events:none; animation:onde .7s ease-out forwards; }
+  .onde.droit { border-color:#FF7A59; }
+  @keyframes onde { to { transform:scale(4); opacity:0; } }
+  #bravo, #fin { position:absolute; inset:0; background:rgba(13,31,77,.82); display:none; align-items:center; justify-content:center; z-index:40; }
+  .carte { background:#fff; border:8px solid var(--jaune); border-radius:24px; padding:30px 44px; text-align:center; max-width:760px; }
+  .carte h3 { font-size:42px; margin:0 0 12px; color:var(--bleu); }
+  .carte p { font-size:24px; margin:8px 0 22px; }
+  .gros { font-size:26px; font-weight:700; padding:14px 28px; border-radius:14px; border:3px solid var(--bleu); background:var(--jaune); color:#000; margin:6px 10px; cursor:pointer; }
+  .gros.sec { background:#fff; }
+  #accueil { position:absolute; inset:0; background:rgba(13,31,77,.9); display:flex; align-items:center; justify-content:center; z-index:50; }
+  .note { max-width:1100px; margin:10px auto 30px; color:#cfd8ef; font-size:16px; }
+  .note a { color:#fff; }
+  @media (max-width:1150px) { #ecran { transform-origin:top left; } }
+</style>
+</head>
+<body>
+<header><span class="num">06</span><h1>La souris : déplacer, agrandir, clic droit, molette</h1></header>
+<div id="consigne"><span id="txt">Bienvenue !</span><span class="essais" id="essais"></span></div>
+
+<div id="ecran">
+  <div class="ico" id="rangement"><svg viewBox="0 0 56 62"><rect x="2" y="12" width="22" height="10" rx="3" fill="#e1aa28"/><rect x="2" y="17" width="52" height="38" rx="5" fill="#fac846" stroke="#c8961e" stroke-width="2"/></svg>Rangement</div>
+  <div class="ico" id="lettre"><svg viewBox="0 0 56 62"><path d="M6 2 H38 L50 14 V60 H6 Z" fill="#fff" stroke="#6e788c" stroke-width="2"/><path d="M38 2 V14 H50" fill="#dde3ee" stroke="#6e788c" stroke-width="2"/><path d="M14 26 H42 M14 34 H42 M14 42 H42 M14 50 H34" stroke="#0067c0" stroke-width="3"/></svg>Ma lettre</div>
+  <div id="fen">
+    <div class="titre">Ma lettre
+      <div class="bt" id="trait" aria-label="le trait"><svg viewBox="0 0 18 18"><path d="M2 9 H16" stroke="#222" stroke-width="1.8"/></svg></div>
+      <div class="bt" id="carre" aria-label="le carré"><svg viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" fill="none" stroke="#222" stroke-width="1.8"/></svg></div>
+      <div class="bt" id="croix" aria-label="la croix"><svg viewBox="0 0 18 18"><path d="M2 2 L16 16 M16 2 L2 16" stroke="#222" stroke-width="1.8"/></svg></div>
+    </div>
+    <div id="texte"></div>
+  </div>
+  <div class="barre">
+    <div class="ic"><div class="carreaux"><i></i><i></i><i></i><i></i></div></div>
+    <div class="ic">🔍</div><div class="ic">📁</div><div class="ic">🌐</div>
+  </div>
+  <div id="menuctx"></div>
+
+  <div class="cadre" id="cadre"></div>
+  <svg id="curseur" viewBox="0 0 20 32"><path d="M1 1 L1 26 L7 20 L12 31 L16 29 L11 19 L19 19 Z" fill="#fff" stroke="#000" stroke-width="2"/></svg>
+
+  <div id="accueil"><div class="carte">
+    <h3>La souris : déplacer, agrandir, clic droit, molette</h3>
+    <p>D'abord, regardez la démonstration.<br>Ensuite, c'est vous qui faites l'exercice.</p>
+    <button class="gros" id="b-demo">▶ Voir la démonstration</button>
+    <button class="gros sec" id="b-exo">Passer à l'exercice</button>
+  </div></div>
+  <div id="bravo"><div class="carte"><h3>Bravo !</h3><p>Vous savez déplacer une icône, agrandir une fenêtre, faire défiler avec la molette et ouvrir le menu du clic droit.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+  <div id="fin"><div class="carte"><h3>Voici la solution</h3><p>Regardez bien, puis essayez à nouveau.</p>
+    <button class="gros" data-act="recommencer">↺ Recommencer</button><button class="gros sec" data-act="terminer">Terminer la leçon</button></div></div>
+</div>
+<p class="note">Exercice d'entraînement : tout se passe dans cette page, rien ne change sur votre ordinateur.
+  · <a href="../">Tous les aide-mémoire</a></p>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const ecran = $('ecran'), cadre = $('cadre'), cur = $('curseur'), lettre = $('lettre'), rang = $('rangement'), fen = $('fen'), texte = $('texte'), menu = $('menuctx');
+  let S = 1, etape, mode = 'accueil', echecs = 0, minuteurs = [];
+  // contenu de la lettre (long, pour la molette)
+  let h = '';
+  for (let i = 1; i <= 6; i++) h += `<h4>Paragraphe ${i}</h4><p>Cher Paul, voici des nouvelles de la maison. Le jardin pousse bien, les voisins vont bien, et je pense souvent à toi. Je t'écris cette lettre pour m'entraîner avec la souris.</p>`;
+  texte.innerHTML = h + '<div class="finl" id="finl">✔ Fin de la lettre : vous êtes tout en bas !</div>';
+  for (let i = 0; i < 5; i++) { const d = document.createElement('div'); d.innerHTML = `<i></i><b style="width:${130 - (i * 23) % 60}px"></b>`; menu.appendChild(d); }
+  const MENU_AT = { x: 640, y: 180 };
+
+  function dire(t) {
+    $('txt').textContent = t;
+    try {
+      if (!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t.replace(/«|»/g, ''));
+      u.lang = 'fr-FR'; u.rate = 0.85;
+      const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith('fr'));
+      if (v) u.voice = v;
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  function plus_tard(ms, f) { minuteurs.push(setTimeout(f, ms)); }
+  function stop() { minuteurs.forEach(clearTimeout); minuteurs = []; }
+
+  // étapes : 1 glisser l'icône · 2 agrandir · 3 molette jusqu'en bas · 4 rendre la taille · 5 clic droit · 6 cliquer à côté · 7 fini
+  function reset() {
+    etape = 1; lettre.style.display = ''; lettre.style.left = '22px'; lettre.style.top = '24px'; lettre.classList.remove('tient');
+    fen.classList.remove('max'); texte.scrollTop = 0; menu.style.display = 'none'; rang.classList.remove('cible');
+  }
+  function pos(el) {
+    const a = el.getBoundingClientRect(), b = ecran.getBoundingClientRect();
+    return { x:(a.left - b.left)/S, y:(a.top - b.top)/S, w:a.width/S, h:a.height/S };
+  }
+  function montrer(el) {
+    if (!el) { cadre.style.display = 'none'; return; }
+    const p = pos(el);
+    Object.assign(cadre.style, { display:'block', left:(p.x-12)+'px', top:(p.y-12)+'px', width:(p.w+24)+'px', height:(p.h+24)+'px' });
+  }
+  function ondeA(x, y, droit) {
+    const o = document.createElement('div'); o.className = 'onde' + (droit ? ' droit' : '');
+    o.style.left = (x - 10) + 'px'; o.style.top = (y - 10) + 'px'; ecran.appendChild(o); setTimeout(() => o.remove(), 800);
+  }
+  function onde(el, droit) { const p = pos(el); ondeA(p.x + p.w/2, p.y + p.h/2, droit); }
+  function allerA(x, y) { cur.style.display = 'block'; cur.style.left = x + 'px'; cur.style.top = y + 'px'; }
+  function bouger(el) { const p = pos(el); allerA(p.x + p.w/2, p.y + p.h/2); }
+  function ouvrirMenu(x, y) { menu.style.left = x + 'px'; menu.style.top = y + 'px'; menu.style.display = 'block'; }
+
+  // ---------- démonstration et solution (même scénario, vitesse différente) ----------
+  function scenario(lent, fin) {
+    stop(); reset(); cur.style.transition = 'none'; allerA(700, 420); setTimeout(() => cur.style.transition = '', 50);
+    let t = lent ? 300 : 2200; const A = lent ? 6000 : 3800, C = lent ? 2600 : 1700;
+    const parle = (x) => { if (lent || x.court) dire(lent ? x.long : x.court); };
+    const pas = (txt, el, action, attente = A) => {
+      plus_tard(t, () => { parle(txt); montrer(el()); bouger(el()); });
+      plus_tard(t + C, () => { action(); montrer(null); });
+      t += attente;
+    };
+    // 1. glisser-déposer
+    pas({ long: "Placez la flèche sur l'icône « Ma lettre ». Appuyez sur le bouton gauche, et gardez-le enfoncé.", court: "On garde le bouton gauche enfoncé sur l'icône…" }, () => lettre, () => { onde(lettre); lettre.classList.add('tient'); });
+    plus_tard(t, () => {
+      parle({ long: "Déplacez la souris jusqu'au dossier « Rangement », puis relâchez le bouton.", court: "…on glisse jusqu'au dossier, et on relâche." });
+      rang.classList.add('cible'); lettre.style.transition = 'left 1.4s ease-in-out, top 1.4s ease-in-out'; lettre.style.top = '300px'; allerA(77, 340);
+    });
+    plus_tard(t + 1700, () => { lettre.style.transition = ''; lettre.classList.remove('tient'); lettre.style.display = 'none'; rang.classList.remove('cible'); onde(rang); });
+    t += lent ? 5000 : 3000;
+    // 2. agrandir
+    pas({ long: "Pour agrandir la fenêtre, cliquez sur le carré, en haut à droite.", court: "On clique sur le carré : la fenêtre s'agrandit." }, () => $('carre'), () => { onde($('carre')); fen.classList.add('max'); });
+    // 3. molette
+    plus_tard(t, () => { parle({ long: "Tournez la molette vers vous : la lettre descend, jusqu'en bas.", court: "On tourne la molette vers soi : la page descend." }); montrer(texte); bouger(texte); });
+    plus_tard(t + 1200, () => { texte.style.scrollBehavior = 'smooth'; texte.scrollTop = texte.scrollHeight; });
+    plus_tard(t + (lent ? 4500 : 3000), () => { texte.style.scrollBehavior = ''; montrer(null); });
+    t += lent ? 6000 : 3800;
+    // 4. rendre la taille
+    pas({ long: "Cliquez encore sur le carré : la fenêtre reprend sa taille.", court: "Encore le carré : la fenêtre reprend sa taille." }, () => $('carre'), () => { onde($('carre')); fen.classList.remove('max'); });
+    // 5. clic droit
+    plus_tard(t, () => { parle({ long: "Faites un clic droit sur le bureau : un petit menu s'ouvre.", court: "Un clic droit sur le bureau : un menu s'ouvre." }); allerA(MENU_AT.x, MENU_AT.y); });
+    plus_tard(t + C, () => { ondeA(MENU_AT.x, MENU_AT.y, true); ouvrirMenu(MENU_AT.x, MENU_AT.y); montrer(menu); });
+    t += A;
+    // 6. fermer le menu
+    plus_tard(t, () => { montrer(null); parle({ long: "Pour fermer le menu sans rien choisir, cliquez à côté, avec le bouton gauche.", court: "On clique à côté : le menu se ferme." }); allerA(300, 470); });
+    plus_tard(t + C, () => { ondeA(300, 470); menu.style.display = 'none'; });
+    t += A;
+    plus_tard(t, fin);
+  }
+  function demo() {
+    mode = 'demo'; $('accueil').style.display = 'none'; $('essais').textContent = 'Démonstration';
+    scenario(true, () => { dire("C'est terminé. À vous maintenant !"); plus_tard(3500, () => { cur.style.display = 'none'; exercice(); }); });
+  }
+  function solution() {
+    mode = 'demo'; $('essais').textContent = 'Solution'; dire("Voici la solution. Regardez bien.");
+    scenario(false, () => { cur.style.display = 'none'; $('fin').style.display = 'flex'; });
+  }
+
+  // ---------- exercice ----------
+  const CONSIGNES = {
+    1: "Étape 1 : glissez l'icône « Ma lettre » dans le dossier « Rangement ». Gardez le bouton gauche enfoncé pendant le trajet.",
+    2: "Bravo ! Étape 2 : agrandissez la fenêtre. Cliquez sur le carré, en haut à droite.",
+    3: "Très bien ! Étape 3 : avec la molette, faites descendre la lettre jusqu'en bas.",
+    4: "Parfait ! Étape 4 : cliquez encore sur le carré, pour rendre sa taille à la fenêtre.",
+    5: "Bravo ! Étape 5 : faites un clic droit sur le bureau, à côté de la fenêtre.",
+    6: "Le menu est ouvert ! Étape 6 : fermez-le sans rien choisir. Cliquez à côté, avec le bouton gauche."
+  };
+  function exercice() {
+    stop(); mode = 'exo'; echecs = 0;
+    ['accueil', 'bravo', 'fin'].forEach(x => $(x).style.display = 'none');
+    cur.style.display = 'none'; montrer(null); reset(); majEssais(); dire(CONSIGNES[1]);
+  }
+  function suivant() { etape++; if (etape > 6) { reussi(); return; } dire(CONSIGNES[etape]); }
+  function majEssais() { $('essais').textContent = mode === 'exo' ? `Essais ratés : ${echecs} / 3` : ''; }
+  function echec(msg) {
+    echecs++; majEssais();
+    if (echecs >= 3) { solution(); return; }
+    dire(msg);
+  }
+  function reussi() { etape = 7; dire("Bravo ! Vous maîtrisez les quatre gestes de la souris."); $('bravo').style.display = 'flex'; }
+
+  // glisser-déposer de l'icône
+  let prise = null;
+  lettre.addEventListener('pointerdown', e => {
+    if (mode !== 'exo' || etape !== 1 || e.button !== 0) return;
+    e.preventDefault(); const p = pos(lettre), b = ecran.getBoundingClientRect();
+    prise = { dx: (e.clientX - b.left) / S - p.x, dy: (e.clientY - b.top) / S - p.y, x0: e.clientX, y0: e.clientY };
+    lettre.classList.add('tient'); try { lettre.setPointerCapture(e.pointerId); } catch (_) {}
+    dire("Bien, vous tenez l'icône. Gardez le bouton enfoncé, et allez jusqu'au dossier « Rangement ».");
+  });
+  function surDossier() { const a = pos(lettre), b = pos(rang); const cx = a.x + a.w/2, cy = a.y + a.h/2; return cx > b.x - 20 && cx < b.x + b.w + 20 && cy > b.y - 20 && cy < b.y + b.h + 20; }
+  lettre.addEventListener('pointermove', e => {
+    if (!prise) return; const b = ecran.getBoundingClientRect();
+    lettre.style.left = ((e.clientX - b.left) / S - prise.dx) + 'px'; lettre.style.top = ((e.clientY - b.top) / S - prise.dy) + 'px';
+    rang.classList.toggle('cible', surDossier());
+  });
+  lettre.addEventListener('pointerup', e => {
+    if (!prise) return; const bouge = Math.hypot(e.clientX - prise.x0, e.clientY - prise.y0); prise = null;
+    lettre.classList.remove('tient'); rang.classList.remove('cible');
+    if (surDossier()) { lettre.style.display = 'none'; onde(rang); suivant(); return; }
+    lettre.style.left = '22px'; lettre.style.top = '24px';
+    echec(bouge < 8 ? "Pas de panique : appuyez sur le bouton gauche, et GARDEZ-le enfoncé en déplaçant la souris."
+                    : "Presque ! L'icône doit arriver sur le dossier « Rangement » avant de relâcher. Recommencez.");
+  });
+  // boutons de la fenêtre
+  $('carre').addEventListener('click', e => {
+    if (mode !== 'exo') return; e.stopPropagation();
+    if (etape === 2) { fen.classList.add('max'); suivant(); }
+    else if (etape === 4) { fen.classList.remove('max'); suivant(); }
+    else if (etape === 3) dire("Pas tout de suite : faites d'abord descendre la lettre avec la molette.");
+  });
+  $('trait').addEventListener('click', e => { if (mode !== 'exo' || etape > 6) return; e.stopPropagation(); if (etape === 2 || etape === 4) echec("C'est le trait : il cache la fenêtre en bas. Cherchez plutôt le carré, juste à côté."); });
+  $('croix').addEventListener('click', e => { if (mode !== 'exo' || etape > 6) return; e.stopPropagation(); if (etape === 2 || etape === 4) echec("C'est la croix : elle ferme la fenêtre. Cherchez plutôt le carré, juste à gauche."); });
+  // molette
+  texte.addEventListener('scroll', () => {
+    if (mode === 'exo' && etape === 3 && texte.scrollTop + texte.clientHeight >= texte.scrollHeight - 6) suivant();
+  });
+  // clic droit et clic gauche sur le bureau
+  ecran.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    if (mode !== 'exo') return;
+    if (etape === 5 && !e.target.closest('#fen') && !e.target.closest('.barre')) {
+      const b = ecran.getBoundingClientRect(); ouvrirMenu(Math.min((e.clientX - b.left) / S, 830), Math.min((e.clientY - b.top) / S, 340)); suivant();
+    } else if (etape === 5) dire("Faites le clic droit sur le bureau bleu, à côté de la fenêtre.");
+  });
+  ecran.addEventListener('click', e => {
+    if (mode !== 'exo') return;
+    if (e.target.closest('.bt') || e.target.closest('#lettre')) return;
+    if (etape === 5 && !e.target.closest('#fen')) { echec("C'était un clic gauche. Pour ouvrir le menu, appuyez sur le bouton DROIT de la souris."); return; }
+    if (etape === 6) {
+      if (e.target.closest('#menuctx')) { dire("Ce sont des actions. Pour fermer le menu sans rien choisir, cliquez à côté du menu."); return; }
+      menu.style.display = 'none'; ondeA((e.clientX - ecran.getBoundingClientRect().left) / S, (e.clientY - ecran.getBoundingClientRect().top) / S); suivant();
+    }
+  });
+
+  $('b-demo').onclick = demo;
+  $('b-exo').onclick = exercice;
+  document.querySelectorAll('[data-act]').forEach(b => b.onclick = () => {
+    if (b.dataset.act === 'recommencer') exercice();
+    else { stop(); $('bravo').style.display = 'none'; $('fin').style.display = 'none'; mode = 'fini'; montrer(null); cur.style.display = 'none'; dire("Leçon terminée. Bravo pour votre travail, et à bientôt à Espace 19 !"); $('essais').textContent = ''; }
+  });
+
+  function echelle() { const s = S = Math.min(1, (window.innerWidth - 20) / 1100); ecran.style.transform = `scale(${s})`; ecran.style.marginBottom = (s < 1 ? -(620 * (1 - s)) : 0) + 'px'; }
+  window.addEventListener('resize', echelle); echelle();
+  reset(); dire("Bienvenue ! Cliquez sur « Voir la démonstration ».");
+})();
+</script>
+</body>
+</html>
