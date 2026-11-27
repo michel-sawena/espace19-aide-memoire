@@ -1,0 +1,23 @@
+{
+ "numero": "18",
+ "titre": "Envoyer et recevoir un mail",
+ "marges": {"intro": 1.5, "boite": 2.5, "lire": 2.5, "nouveau": 2.5, "case_a": 3, "objet": 2.5, "texte": 2.5, "envoyer": 2.5, "repondre": 3, "panique": 2},
+ "scenes": [
+  {"id": "titre", "narration": "Envoyer et recevoir un mail.", "caption": ""},
+  {"id": "intro", "narration": "Un mail, c'est une lettre qui voyage par Internet. Elle arrive en quelques secondes, sans timbre. Prenez votre temps, vous ne pouvez rien casser.", "caption": "Une lettre qui voyage par Internet"},
+  {"id": "boite", "narration": "Ouvrez votre messagerie. À gauche, cliquez sur Boîte de réception. C'est votre boîte aux lettres : les mails reçus arrivent ici.", "caption": "1. La Boîte de réception"},
+  {"id": "lire", "narration": "Pour lire un mail, cliquez dessus. Il s'ouvre en grand. Vous voyez qui l'a envoyé, et son message.", "caption": "2. Lire un mail"},
+  {"id": "nouveau", "narration": "Pour écrire un mail, cliquez sur Nouveau message. Selon la messagerie, ce bouton s'appelle parfois Écrire. Une fenêtre s'ouvre.", "caption": "3. Nouveau message"},
+  {"id": "case_a", "narration": "Dans la case À, tapez l'adresse de la personne. Une adresse contient toujours le signe arobase, un petit a entouré.", "caption": "4. La case À : l'adresse"},
+  {"id": "objet", "narration": "Dans la case Objet, écrivez le sujet en quelques mots. Par exemple : Bonjour.", "caption": "5. La case Objet"},
+  {"id": "texte", "narration": "Dans le grand espace en dessous, écrivez votre message, comme une lettre.", "caption": "6. Le message"},
+  {"id": "envoyer", "narration": "Relisez-vous. Puis cliquez sur Envoyer. Votre mail part tout de suite. Bravo !", "caption": "7. Envoyer"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "repondre", "narration": "Pour répondre à un mail reçu, ouvrez-le. Puis cliquez sur Répondre. L'adresse et l'objet sont déjà remplis. Écrivez votre réponse, puis cliquez sur Envoyer.", "caption": "8. Répondre"},
+  {"id": "panique", "narration": "Pas de panique ! Un mail attendu n'est pas arrivé ? Attendez quelques minutes. Regardez aussi dans les courriers indésirables, aussi appelés spams.", "caption": "Pas de panique"},
+  {"id": "exercice", "narration": "À vous de jouer ! Envoyez un mail à vous-même. Dans la case À, tapez votre propre adresse. Objet : Essai. Message : Bonjour ! Puis envoyez-le. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Cliquez sur Nouveau message. Tapez votre adresse dans la case À, et Essai dans la case Objet. Écrivez Bonjour, puis cliquez sur Envoyer. Quelques secondes plus tard, le mail arrive dans votre Boîte de réception.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : Nouveau message, la case À, la case Objet, le message, puis Envoyer. Pour répondre : Répondre. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
