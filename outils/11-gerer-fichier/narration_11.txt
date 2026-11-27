@@ -1,0 +1,29 @@
+Renommer, déplacer, copier, supprimer et récupérer un fichier.
+
+Un fichier, c'est comme une feuille de papier. Aujourd'hui, vous allez changer son nom, le ranger ailleurs, le photocopier, le jeter, puis le récupérer. Vous ne pouvez rien casser.
+
+Tout commence par un clic droit sur le fichier. En haut du petit menu, il y a des icônes. Posez la souris sur une icône : son nom apparaît.
+
+Pour changer le nom, faites un clic droit sur le fichier, puis cliquez sur Renommer. Tapez le nouveau nom, puis appuyez sur Entrée.
+
+Pour ranger le fichier dans un dossier, cliquez dessus et gardez le bouton appuyé. Faites glisser jusqu'au dossier, puis lâchez.
+
+Pour faire une copie, comme une photocopie, faites un clic droit sur le fichier, puis cliquez sur Copier.
+
+Ouvrez le dossier où vous voulez la copie. En haut de la fenêtre, cliquez sur Coller. La copie apparaît.
+
+Mettez la vidéo en pause, et essayez sur votre ordinateur.
+
+Pour jeter un fichier, faites un clic droit dessus, puis cliquez sur Supprimer. Il part dans la Corbeille, comme une feuille dans la poubelle.
+
+Pas de panique, il n'est pas perdu ! Sur le bureau, double-cliquez sur la Corbeille.
+
+Faites un clic droit sur votre fichier, puis cliquez sur Restaurer. Il retourne à sa place d'origine.
+
+Bon à savoir : tant que la Corbeille n'est pas vidée, vos fichiers peuvent revenir.
+
+À vous de jouer ! Renommez un fichier, rangez-le dans un dossier, supprimez-le, puis restaurez-le. Mettez la vidéo en pause.
+
+Voici la solution. Clic droit, Renommer. Faites glisser le fichier sur le dossier. Clic droit, Supprimer. Puis, dans la Corbeille, clic droit, Restaurer.
+
+Retenez bien : tout commence par un clic droit sur le fichier. Et la Corbeille vous permet de récupérer un fichier jeté. À bientôt à Espace 19 !

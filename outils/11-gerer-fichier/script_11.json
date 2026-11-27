@@ -1,0 +1,23 @@
+{
+ "numero": "11",
+ "titre": "Renommer, déplacer, copier, supprimer, récupérer un fichier",
+ "marges": {"intro": 1.5, "menu": 2, "renommer": 3, "deplacer": 3, "copier": 2, "coller": 3, "supprimer": 3, "corbeille": 2, "restaurer": 3, "bon": 1.5},
+ "scenes": [
+  {"id": "titre", "narration": "Renommer, déplacer, copier, supprimer et récupérer un fichier.", "caption": ""},
+  {"id": "intro", "narration": "Un fichier, c'est comme une feuille de papier. Aujourd'hui, vous allez changer son nom, le ranger ailleurs, le photocopier, le jeter, puis le récupérer. Vous ne pouvez rien casser.", "caption": "Une feuille de papier"},
+  {"id": "menu", "narration": "Tout commence par un clic droit sur le fichier. En haut du petit menu, il y a des icônes. Posez la souris sur une icône : son nom apparaît.", "caption": "Le clic droit sur le fichier"},
+  {"id": "renommer", "narration": "Pour changer le nom, faites un clic droit sur le fichier, puis cliquez sur Renommer. Tapez le nouveau nom, puis appuyez sur Entrée.", "caption": "1. Renommer"},
+  {"id": "deplacer", "narration": "Pour ranger le fichier dans un dossier, cliquez dessus et gardez le bouton appuyé. Faites glisser jusqu'au dossier, puis lâchez.", "caption": "2. Déplacer : faites glisser"},
+  {"id": "copier", "narration": "Pour faire une copie, comme une photocopie, faites un clic droit sur le fichier, puis cliquez sur Copier.", "caption": "3. Copier"},
+  {"id": "coller", "narration": "Ouvrez le dossier où vous voulez la copie. En haut de la fenêtre, cliquez sur Coller. La copie apparaît.", "caption": "4. Coller"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "supprimer", "narration": "Pour jeter un fichier, faites un clic droit dessus, puis cliquez sur Supprimer. Il part dans la Corbeille, comme une feuille dans la poubelle.", "caption": "5. Supprimer"},
+  {"id": "corbeille", "narration": "Pas de panique, il n'est pas perdu ! Sur le bureau, double-cliquez sur la Corbeille.", "caption": "6. Ouvrez la Corbeille"},
+  {"id": "restaurer", "narration": "Faites un clic droit sur votre fichier, puis cliquez sur Restaurer. Il retourne à sa place d'origine.", "caption": "7. Restaurer"},
+  {"id": "bon", "narration": "Bon à savoir : tant que la Corbeille n'est pas vidée, vos fichiers peuvent revenir.", "caption": "Bon à savoir"},
+  {"id": "exercice", "narration": "À vous de jouer ! Renommez un fichier, rangez-le dans un dossier, supprimez-le, puis restaurez-le. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Clic droit, Renommer. Faites glisser le fichier sur le dossier. Clic droit, Supprimer. Puis, dans la Corbeille, clic droit, Restaurer.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : tout commence par un clic droit sur le fichier. Et la Corbeille vous permet de récupérer un fichier jeté. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
