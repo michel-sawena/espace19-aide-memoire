@@ -1,0 +1,122 @@
+{
+ "numero": "23",
+ "titre": "La CAF en ligne",
+ "marges": {
+  "intro": 1.5,
+  "avant": 2.5,
+  "site": 3,
+  "moncompte": 3,
+  "identifiant": 3,
+  "motdepasse": 3,
+  "code": 3,
+  "secret": 2,
+  "espace": 2,
+  "attest": 3,
+  "choix": 3,
+  "telecharger": 3,
+  "deconnexion": 3,
+  "panique": 2
+ },
+ "scenes": [
+  {
+   "id": "titre",
+   "narration": "La CAF en ligne.",
+   "caption": ""
+  },
+  {
+   "id": "intro",
+   "narration": "La CAF verse des aides, comme l'aide au logement. Sur son site, caf point f r, vous suivez votre dossier chez vous. Prenez votre temps.",
+   "caption": "La CAF, de chez vous"
+  },
+  {
+   "id": "avant",
+   "narration": "D'abord, préparez trois choses. Votre carte Vitale. Votre mot de passe de la CAF. Et votre boîte mail, pour recevoir un code.",
+   "caption": "Préparez 3 choses"
+  },
+  {
+   "id": "site",
+   "narration": "Ouvrez le navigateur. Dans la barre d'adresse, tapez caf point f r, puis appuyez sur Entrée.",
+   "caption": "1. Allez sur caf.fr"
+  },
+  {
+   "id": "moncompte",
+   "narration": "Sur la page d'accueil, cliquez sur Mon Compte.",
+   "caption": "2. Cliquez sur « Mon Compte »"
+  },
+  {
+   "id": "identifiant",
+   "narration": "Dans la première case, tapez les treize premiers chiffres de votre numéro de sécurité sociale. Il est écrit sur votre carte Vitale.",
+   "caption": "3. Votre numéro de sécurité sociale"
+  },
+  {
+   "id": "motdepasse",
+   "narration": "Dans la deuxième case, tapez votre mot de passe de la CAF. Puis cliquez sur Se connecter.",
+   "caption": "4. Mot de passe, puis « Se connecter »"
+  },
+  {
+   "id": "code",
+   "narration": "Pour votre sécurité, cliquez sur Envoyer le code. Ouvrez votre boîte mail : un code à six chiffres vous attend. Tapez ce code, puis validez.",
+   "caption": "5. Le code reçu par mail"
+  },
+  {
+   "id": "secret",
+   "narration": "Attention, ce code est secret. Un conseiller de la CAF ne vous le demandera jamais.",
+   "caption": "Ce code est secret"
+  },
+  {
+   "id": "espace",
+   "narration": "Vous voici dans votre espace personnel. Bravo !",
+   "caption": "Votre espace « Mon Compte »"
+  },
+  {
+   "id": "pause1",
+   "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.",
+   "caption": ""
+  },
+  {
+   "id": "attest",
+   "narration": "Faisons une démarche simple : télécharger une attestation. C'est un papier officiel qui prouve vos aides. Cliquez sur Mes attestations.",
+   "caption": "6. Cliquez sur « Mes attestations »"
+  },
+  {
+   "id": "choix",
+   "narration": "Choisissez l'attestation de paiement. Puis choisissez la période, par exemple le mois précédent.",
+   "caption": "7. Le type, puis la période"
+  },
+  {
+   "id": "telecharger",
+   "narration": "Cliquez sur Télécharger. L'attestation s'ouvre : vous pouvez l'enregistrer ou l'imprimer.",
+   "caption": "8. Cliquez sur « Télécharger »"
+  },
+  {
+   "id": "deconnexion",
+   "narration": "Quand vous avez fini, cliquez sur Déconnexion. C'est comme fermer la porte à clé en partant.",
+   "caption": "9. Cliquez sur « Déconnexion »"
+  },
+  {
+   "id": "panique",
+   "narration": "Mot de passe oublié ? Cliquez sur le lien Mot de passe oublié. Vous pouvez aussi appeler la CAF au trente-deux trente, ou venir à Espace 19.",
+   "caption": "Pas de panique"
+  },
+  {
+   "id": "exercice",
+   "narration": "À vous de jouer ! Connectez-vous, puis téléchargez une attestation. Mettez la vidéo en pause.",
+   "caption": "Exercice"
+  },
+  {
+   "id": "attente",
+   "narration": "",
+   "caption": ""
+  },
+  {
+   "id": "solution",
+   "narration": "Voici la solution. caf point f r, puis Mon Compte. Numéro de sécurité sociale, mot de passe, Se connecter, puis le code. Ensuite, Mes attestations, le type, la période, et Télécharger.",
+   "caption": "Solution"
+  },
+  {
+   "id": "resume",
+   "narration": "Retenez bien : Mon Compte, la carte Vitale, le mot de passe, le code par mail. Et Déconnexion à la fin. À bientôt à Espace 19 !",
+   "caption": ""
+  }
+ ]
+}
