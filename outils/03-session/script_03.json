@@ -1,0 +1,27 @@
+{
+ "numero": "03",
+ "titre": "Ouvrir sa session et découvrir le bureau",
+ "marges": {"verrou": 2, "code": 2.5, "entree": 1.5, "bureau": 1.5, "corbeille": 1.5, "barre": 1.5, "demarrer": 1.5, "rechercher": 1.5, "heure": 1.5, "menu": 3, "compte": 2, "fermer": 3, "verrouiller": 2},
+ "scenes": [
+  {"id": "titre", "narration": "Ouvrir sa session et découvrir le bureau.", "caption": ""},
+  {"id": "intro", "narration": "Ouvrir sa session, c'est comme ouvrir la porte de chez soi : votre code est la clé. Derrière la porte, il y a le bureau, votre table de travail.", "caption": "La session et le bureau"},
+  {"id": "verrou", "narration": "L'ordinateur est allumé : l'heure et la date s'affichent. Appuyez sur une touche du clavier, ou cliquez avec la souris.", "caption": "1. Appuyez sur une touche"},
+  {"id": "code", "narration": "Une case apparaît, sous votre nom. Tapez votre code. Des petits points s'affichent à la place des chiffres : c'est normal, votre code reste secret.", "caption": "2. Tapez votre code"},
+  {"id": "entree", "narration": "Si rien ne se passe, appuyez sur la touche Entrée.", "caption": "3. Si besoin : touche Entrée"},
+  {"id": "bureau", "narration": "Bravo, votre session est ouverte ! Voici le bureau. Les petits dessins s'appellent des icônes.", "caption": "Voici le bureau"},
+  {"id": "corbeille", "narration": "En haut à gauche, la Corbeille. Elle garde ce que vous jetez, comme une poubelle.", "caption": "La Corbeille"},
+  {"id": "barre", "narration": "En bas de l'écran, cette longue bande s'appelle la barre des tâches. Elle est toujours là.", "caption": "La barre des tâches"},
+  {"id": "demarrer", "narration": "Au milieu, le bouton Démarrer, avec ses quatre carreaux bleus.", "caption": "Le bouton « Démarrer »"},
+  {"id": "rechercher", "narration": "Juste à côté, la loupe : Rechercher. On y écrit le nom de ce que l'on cherche.", "caption": "La loupe : « Rechercher »"},
+  {"id": "heure", "narration": "Tout à droite, l'heure et la date.", "caption": "L'heure et la date"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et ouvrez votre session.", "caption": "Pause : ouvrez votre session"},
+  {"id": "menu", "narration": "Cliquez sur Démarrer. Le menu Démarrer s'ouvre. En haut, les applications épinglées : ce sont vos programmes, rangés comme sur une étagère.", "caption": "4. Cliquez sur « Démarrer »"},
+  {"id": "compte", "narration": "En bas à gauche, votre nom. En bas à droite, le bouton Marche-Arrêt, pour éteindre.", "caption": "Dans le menu Démarrer"},
+  {"id": "fermer", "narration": "Pour fermer le menu, cliquez de nouveau sur Démarrer. Vous revenez au bureau.", "caption": "5. Fermez le menu"},
+  {"id": "verrouiller", "narration": "Bon à savoir : avant de vous absenter, appuyez en même temps sur la touche Windows et sur la lettre L. L'écran se verrouille. Pour revenir, tapez votre code.", "caption": "Bon à savoir : verrouiller"},
+  {"id": "exercice", "narration": "À vous de jouer ! Ouvrez votre session. Puis ouvrez le menu Démarrer, et fermez-le. Mettez la vidéo en pause.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Appuyez sur une touche, puis tapez votre code. Cliquez sur Démarrer : le menu s'ouvre. Cliquez de nouveau sur Démarrer : il se ferme.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : une touche, puis votre code. Le bureau, c'est votre table de travail. Et tout commence par le bouton Démarrer. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}

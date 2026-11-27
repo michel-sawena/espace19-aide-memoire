@@ -49,6 +49,7 @@ def aligne(voix, phrases):
         for j in range(1, N + 1):
             for i in range(max(0, j - 10), j):
                 if best[k - 1][i] >= INF: continue
+                if pre[j] - pre[i] <= 0.01: continue   # morceau vide (silences collés) : pas une phrase
                 c = math.log((pre[j] - pre[i]) / (r * S[k - 1])) ** 2 * 10
                 if j < N: c -= 1.5 * min(segs[j - 1][2], 1.5)
                 if best[k - 1][i] + c < best[k][j]:
