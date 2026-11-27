@@ -1,0 +1,23 @@
+{
+ "numero": "14",
+ "titre": "Ajouter et retrouver ses favoris",
+ "marges": {"intro": 2, "site": 2.5, "etoile": 3, "fenetre": 3, "rempli": 2.5, "points": 3, "favoris": 3, "liste": 3, "bonus": 3},
+ "scenes": [
+  {"id": "titre", "narration": "Ajouter et retrouver ses favoris.", "caption": ""},
+  {"id": "intro", "narration": "Vous aimez un site, et vous voulez le retrouver facilement ? Mettez-le dans vos favoris. Un favori, c'est comme un marque-page dans un livre. Prenez votre temps.", "caption": "Un favori : un marque-page"},
+  {"id": "site", "narration": "Ouvrez le navigateur, et allez sur le site que vous aimez. Par exemple : google point f r.", "caption": "1. Allez sur le site"},
+  {"id": "etoile", "narration": "Regardez au bout de la barre d'adresse, à droite. Il y a une petite étoile. Cliquez une fois sur l'étoile.", "caption": "2. Cliquez sur l'étoile"},
+  {"id": "fenetre", "narration": "Une petite fenêtre s'ouvre. Elle montre le nom du favori. Vous n'avez rien à changer. Cliquez sur le bouton bleu pour valider.", "caption": "3. Cliquez sur le bouton bleu"},
+  {"id": "rempli", "narration": "L'étoile se remplit. La page est dans vos favoris. Bravo !", "caption": "C'est enregistré !"},
+  {"id": "pause1", "narration": "Mettez la vidéo en pause, et essayez sur votre ordinateur.", "caption": ""},
+  {"id": "points", "narration": "Un autre jour, vous voulez retrouver ce site. Ouvrez le navigateur. En haut à droite, cliquez sur les trois petits points.", "caption": "4. Cliquez sur les trois points"},
+  {"id": "favoris", "narration": "Un menu s'ouvre. Cliquez sur Favoris.", "caption": "5. Cliquez sur « Favoris »"},
+  {"id": "liste", "narration": "La liste de vos favoris s'affiche. Cliquez sur le nom du site. La page s'ouvre. Vous n'avez rien eu à taper !", "caption": "6. Cliquez sur le nom du site"},
+  {"id": "pause2", "narration": "Mettez la vidéo en pause, et essayez à votre tour.", "caption": ""},
+  {"id": "bonus", "narration": "Une astuce au clavier. Pour ajouter une page aux favoris, appuyez sur la touche Contrôle, et en même temps sur la lettre D.", "caption": "Astuce : Ctrl + D"},
+  {"id": "exercice", "narration": "À vous de jouer ! Allez sur google point f r. Ajoutez la page à vos favoris. Puis fermez le navigateur, rouvrez-le, et retrouvez la page dans vos favoris.", "caption": "Exercice"},
+  {"id": "attente", "narration": "", "caption": ""},
+  {"id": "solution", "narration": "Voici la solution. Cliquez sur l'étoile, puis sur le bouton bleu. Pour retrouver la page : les trois petits points, puis Favoris, puis le nom du site.", "caption": "Solution"},
+  {"id": "resume", "narration": "Retenez bien : l'étoile pour ajouter. Les trois points, puis Favoris, pour retrouver. À bientôt à Espace 19 !", "caption": ""}
+ ]
+}
